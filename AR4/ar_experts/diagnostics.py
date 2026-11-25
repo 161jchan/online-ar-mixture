@@ -1,4 +1,6 @@
-"""Reproducible small diagnostic run; truth is used only after forecasting."""
+"""Save results and make plots so we can inspect the generated data,
+AR coefficient estimates, forecast errors, and failed fits.
+"""
 
 import argparse
 import csv
@@ -17,7 +19,12 @@ def write_json(path, value):
 
 
 def run_stream(values, config):
-    """No truth argument: forecasts use only the observation stream."""
+    """Run AR(1)..AR(L) through the observations and save their forecasts.
+
+    This function receives observations and settings, but not the real
+    AR(4) coefficients. It predicts each target before passing that target
+    to update(). The default maximum order is L=8.
+    """
     bank = OnlineARExperts(config).initialize(values[:config.warmup_length])
     fields = {name: [] for name in (
         'forecasts_standardized', 'forecasts_raw', 'targets_standardized',
@@ -27,11 +34,12 @@ def run_stream(values, config):
     coefficient_error = variance_error = 0.0
     comparisons = 0
     for target_index in range(config.warmup_length, len(values)):
-        forecasts = bank.predict()  # predict BEFORE target is revealed
+        forecasts = bank.predict()
         snapshot = bank.snapshot()
         if snapshot['next_target_index'] != target_index:
             raise AssertionError('Forecast/target alignment failed')
-        # Independent direct reference for every valid order, every scored state.
+        # At every scored step, compare each successfully fitted AR order
+        # with the direct NumPy solution using the same covariance estimates.
         for p in np.flatnonzero(snapshot['diagnostics']['fresh']) + 1:
             a, v = direct_yule_walker(snapshot['covariances_standardized'], p,
                                      epsilon=config.epsilon)
@@ -40,7 +48,9 @@ def run_stream(values, config):
             variance_error = max(variance_error,
                                  abs(v-snapshot['error_variances_standardized'][p-1]))
             comparisons += 1
-        # Observe and record errors/diagnostic state before update.
+        # Save each expert's forecast and coefficients alongside the actual target
+        # before updating AR(1)..AR(L) for the following observation.
+        # After the loop, calculate squared errors from the saved forecasts and targets.
         target = values[target_index]
         fields['forecasts_standardized'].append(forecasts)
         fields['forecasts_raw'].append(bank.inverse_transform(forecasts))
@@ -108,6 +118,8 @@ def plot_diagnostics(directory, values, truth, arrays, summary):
                 title='Lag dependence (not used for preprocessing)')
     save(fig, 'data_diagnostics')
 
+    # Compare the estimated lag-1..4 coefficients from AR(4)..AR(8)
+    # with the real generating coefficients. This is done after forecasting.
     fig, axes = plt.subplots(2, 2, figsize=(10, 6), layout='constrained')
     colors = plt.cm.viridis(np.linspace(.1, .9, 5))
     for lag, ax in enumerate(axes.flat):
@@ -212,7 +224,12 @@ def run_one(root, seed, config):
 
 
 def write_report_results(path, summaries, first_truth):
-    """Optional numeric LaTeX export, only when --report-results is supplied."""
+    """If requested, export the seeds, real generating coefficients, stability
+    result, normalization settings, scored observation count, solver-check
+    difference, failed-fit count, and per-expert MSE table for LaTeX.
+
+    The complete estimated coefficient paths remain in online_diagnostics.npz.
+    """
     first = summaries[0]
     mse = np.array([s['expert_mse_raw'] for s in summaries])
     a = first_truth['coefficients']
