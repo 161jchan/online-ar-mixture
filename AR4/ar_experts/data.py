@@ -1,4 +1,13 @@
-"""Synthetic truth lives here; experts receive observations only."""
+"""We generate data by creating each new value from the previous four values,
+weighted by four coefficients, plus random noise.
+
+The coefficients are random draws controlled by a fixed seed. We adjust
+them if necessary to make the AR(4) process stable, then keep them fixed.
+
+We save the real coefficients so we can check the estimates later.
+AR(1) through AR(8) receive the observations but not the real coefficients,
+and must estimate their own coefficients.
+"""
 
 from dataclasses import asdict, dataclass
 import numpy as np
@@ -33,12 +42,19 @@ def spectral_radius(coefficients):
 
 
 def stabilize(coefficients, radius_cap=0.9):
-    """a[k-1] *= s**k maps every companion eigenvalue lambda to s*lambda."""
+    """Multiply the lag-k coefficient by scale**k:
+    a1 x scale, a2 x scale**2, a3 x scale**3, a4 x scale**4.
+
+    We raise the scale factor to the lag power, not the coefficient itself.
+    This adjustment shrinks the companion matrix's eigenvalues by scale.
+    We choose scale so the largest absolute eigenvalue is at most radius_cap,
+    which defaults to the assignment's stability limit of 0.9.
+    """
     if not 0 < radius_cap < 1:
         raise ValueError("radius_cap must be in (0,1)")
     a = np.asarray(coefficients, dtype=float)
     radius = spectral_radius(a)
-    # Tiny inward margin protects the <= cap check against eigensolver rounding.
+    # Aim just below 0.9 so computer rounding does not put the result above 0.9.
     scale = min(1.0, radius_cap * (1 - 1e-12) / radius) if radius else 1.0
     result = a * scale ** np.arange(1, len(a) + 1)
     if spectral_radius(result) > radius_cap:
@@ -47,10 +63,18 @@ def stabilize(coefficients, radius_cap=0.9):
 
 
 def generate_stationary_ar4(config=DataConfig()):
-    """Return observations (N,1) and separate JSON-compatible ground truth.
+    """By default, start with four previous values set to zero. Generate 10,200
+    observations, discard the first 200, and return the remaining 10,000.
 
-    Independent SeedSequence child streams separate coefficient and innovation
-    draws. Start at four zero lags, simulate burn_in + N steps, discard burn_in.
+    N counts the observations we keep, so the returned array has shape
+    (N,1) = (10000,1). The four starting zeros are not included in that count.
+    N and the burn-in length can be changed in DataConfig.
+
+    The same seed and settings reproduce the same coefficients and noise.
+    Use separate random streams for the coefficient draws and noise draws.
+
+    Return the observations and a separate dictionary containing the real
+    coefficients, seed, and generation settings.
     """
     coefficient_seed, noise_seed = np.random.SeedSequence(config.seed).spawn(2)
     original = np.random.default_rng(coefficient_seed).normal(size=4)
