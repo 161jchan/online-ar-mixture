@@ -1,0 +1,18 @@
+{
+  "data": {
+    "seed": 686,
+    "n_observations": 10000,
+    "burn_in": 200,
+    "radius_cap": 0.9
+  },
+  "experts": {
+    "max_order": 8,
+    "forgetting_factor": 0.99,
+    "epsilon": 1e-06,
+    "variance_floor": 1e-12,
+    "reflection_margin": 1e-10,
+    "normalization_floor": 1e-12
+  },
+  "python": "3.12.14",
+  "numpy": "2.5.5"
+}
