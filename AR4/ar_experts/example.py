@@ -1,4 +1,11 @@
-"""Run actual required stationary data; replace gate hooks with Tasnuba's gate."""
+"""Show Tasnuba how to run the generator and experts together.
+
+Generate the stationary AR(4) data, initialize AR(1)..AR(8), then repeatedly
+predict, score the forecasts, and update the experts.
+
+This file is a runnable usage example. Tasnuba can follow the same calls
+in her own runner and insert her gate at the marked points.
+"""
 
 import numpy as np
 from .data import DataConfig, generate_stationary_ar4
@@ -6,24 +13,24 @@ from .experts import OnlineARExperts
 
 
 def stream_with_gate(values, gate_predict=None, gate_update=None):
-    """Hooks are optional; no gate/backbone is implemented in this milestone.
-
-    gate_predict(forecasts_z, snapshot) returns a scalar mixture forecast z.
-    gate_update(target_z, saved_forecasts_z, saved_snapshot, mixture_z) handles
-    the gate's post-observation update using the saved pre-observation inputs.
-    With no hooks, simply record the eight experts' forecast errors.
+    """gate_predict and gate_update are functions Tasnuba can supply.
+    Without them, this example runs only the experts and records their errors.
     """
     bank = OnlineARExperts().initialize(values[:40])
     errors = []
     for target_raw in values[40:]:
-        forecasts_z = bank.predict()  # (8,1), using only earlier observations
+        # Get AR(1)..AR(8)'s forecasts before using the next actual observation.
+        forecasts_z = bank.predict()
         before = bank.snapshot()
+        # Let Tasnuba's optional gate combine the eight forecasts.
         mixture_z = None if gate_predict is None else gate_predict(forecasts_z.copy(), before)
-        # The target is revealed here. It was not passed to gate_predict.
         target_z = bank.standardize(target_raw)
+        # Compare the actual observation with the saved forecasts before
+        # updating either AR(1)..AR(8) or the gate.
         errors.append((target_z-forecasts_z[:, 0])**2)
-        # Record errors BEFORE changing either expert or gate state.
+        # Update the experts for the following observation.
         bank.update(target_raw)
+        # Update the optional gate using the forecasts saved before the update.
         if gate_update is not None:
             gate_update(target_z.copy(), forecasts_z.copy(), before, mixture_z)
     return np.asarray(errors), bank.snapshot()
