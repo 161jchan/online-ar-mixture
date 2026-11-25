@@ -1,4 +1,9 @@
-"""Independent deterministic checks and seeded stochastic sanity checks."""
+"""Check coefficient calculations, forecast timing, and handling of failed fits.
+
+Use tests with mathematically known answers and tests with generated data.
+Repeating the same seed must reproduce the same data. Different seeds
+produce different data, but the calculations must still pass the checks.
+"""
 
 from copy import deepcopy
 import unittest
@@ -9,10 +14,12 @@ from ar_experts.levinson import direct_yule_walker, levinson_durbin
 
 
 def population_covariances(a, max_lag=8, noise_variance=1.0):
-    """Independent state-space Lyapunov solve, not Yule-Walker or Levinson.
+    """Calculate theoretical covariances from known AR coefficients using
+    a discrete Lyapunov equation.
 
-    P = F P F.T + Q; vec(P) = (I - F kron F)^-1 vec(Q).
-    gamma(h) = e1.T F**h P e1. NumPy only; no statistical estimator.
+    We chose this additional test method so the expected covariance values
+    do not come from the Levinson-Durbin code we are testing.
+    The assignment does not specifically require the Lyapunov method.
     """
     a = np.asarray(a, dtype=float)
     p = len(a)
@@ -106,7 +113,8 @@ class GeneratorTests(unittest.TestCase):
         original = np.array([1.1, -.7, .4, 1.2])
         a, s = stabilize(original)
         np.testing.assert_allclose(a, original*s**np.arange(1, 5), atol=1e-15)
-        # Characteristic polynomial roots coincide as multisets.
+        # Check that multiplying the lag-k coefficient by scale**k changes
+        # every companion eigenvalue to its original value multiplied by scale.
         np.testing.assert_allclose(np.sort_complex(np.linalg.eigvals(companion(a))),
                                    np.sort_complex(s*np.linalg.eigvals(companion(original))),
                                    atol=2e-14)
@@ -139,7 +147,9 @@ class OnlineTests(unittest.TestCase):
         self.assertEqual(before, pickle.dumps(self.bank.__dict__))
 
     def test_lag_order_and_positive_forecast_sign(self):
-        # Deliberately distinct lags make reversal/sign mistakes visible.
+        # Supply fixed coefficients and different observations at each lag.
+        # Compare predict() with a forecast calculated by hand.
+        # This catches reversed lags and incorrectly applied coefficient signs.
         self.bank._history = np.arange(1., 9.)
         self.bank._coefficients[:] = 0
         self.bank._coefficients[3, :4] = [.5, -.2, .1, -.05]
@@ -171,7 +181,9 @@ class OnlineTests(unittest.TestCase):
         changed[150:] += 100
         p, norms = run(self.values)
         q, changed_norms = run(changed)
-        # Even prediction FOR changed target 150 is unchanged (not observed yet).
+        # Change observations at index 150 and later.
+        # Forecasts for index 150 and earlier must stay unchanged:
+        # those changed observations had not arrived when the forecasts were made.
         np.testing.assert_array_equal(p[:111], q[:111])
         self.assertEqual(norms, changed_norms)
         self.assertTrue(all(n == norms[0] for n in norms))
@@ -194,7 +206,10 @@ class OnlineTests(unittest.TestCase):
     def test_online_guard_exposes_stale_estimates(self):
         prior = self.bank.snapshot()
         self.bank._r = np.r_[1., .4, 1.1, np.zeros(6)]
-        # z=0 scales all covariances equally, preserving the induced failure.
+        # Set covariance estimates that deliberately make fitting fail.
+        # Then supply an observation whose standardized value is zero, which
+        # preserves those invalid covariance relationships.
+        # Check that the failed and higher AR orders retain their old coefficients.
         self.bank.update(prior['normalization']['mean'])
         after = self.bank.snapshot()
         self.assertEqual(after['diagnostics']['failed_order'], 2)
@@ -224,7 +239,8 @@ class OnlineTests(unittest.TestCase):
                     np.testing.assert_allclose(s['coefficients'][p-1, :p], a,
                                                atol=2e-10, rtol=2e-10)
                     self.assertAlmostEqual(s['error_variances_standardized'][p-1], v, delta=2e-10)
-            # Broad sanity bound, not a coefficient convergence/ranking claim.
+            # Check that forecast errors remain reasonably sized across several seeds.
+            # Do not require exact coefficient recovery or AR(4) to win every run.
             self.assertLess(np.mean(errors[460:]), 3.0)
 
 
