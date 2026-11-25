@@ -1,4 +1,10 @@
-"""Small stateful interface for Tasnuba's causal prediction loop."""
+"""Keep track of the predictors' current coefficients, recent observations,
+and running covariance estimates.
+
+Tasnuba can use OnlineARExperts to initialize the eight predictors,
+get their forecasts, and update them after each new observation.
+OnlineARExperts calls the Levinson-Durbin fitting code itself.
+"""
 
 from dataclasses import asdict, dataclass
 from copy import deepcopy
@@ -9,7 +15,7 @@ from .levinson import levinson_durbin
 @dataclass(frozen=True)
 class ExpertConfig:
     max_order: int = 8
-    forgetting_factor: float = 0.99  # implementation choice, not assignment default
+    forgetting_factor: float = 0.99  # Start with 0.99; the assignment does not specify a default.
     epsilon: float = 1e-6
     variance_floor: float = 1e-12
     reflection_margin: float = 1e-10
@@ -34,11 +40,19 @@ class ExpertConfig:
 
 
 class OnlineARExperts:
-    """predict returns STANDARDIZED forecasts (L,1); update consumes RAW data.
+    """initialize() receives the first 40 raw observations. It calculates
+    their mean and standard deviation, standardizes the 40 observations,
+    and fits AR(1)..AR(8). Keep that mean and standard deviation fixed.
 
-    initialize consumes exactly 5L raw warm-up values and fits once at the end.
-    The first subsequent prediction targets retained observation 5L (zero based).
-    No ground-truth metadata, future data, or full-series summaries enter here.
+    predict() returns eight standardized forecasts in an (8,1) NumPy array.
+    Row 1 is AR(1)'s forecast; row 8 is AR(8)'s forecast.
+
+    update() receives the next actual observation in raw units, after
+    its forecast has been scored. It updates the covariance estimates
+    and recalculates AR(1)..AR(8) for the following observation.
+
+    These sizes use the default maximum order L=8. For other choices of L,
+    initialize() takes 5L observations and predict() returns shape (L,1).
     """
 
     def __init__(self, config=ExpertConfig()):
@@ -58,9 +72,13 @@ class OnlineARExperts:
         self._scale = 1.0 if self._constant_warmup else measured_scale
         L = self.config.max_order
         self._r = np.zeros(L + 1)
-        self._history = np.zeros(L)  # newest first; missing pre-retention lags are zero
+        # Store recent standardized observations with the newest first.
+        # Before an earlier observation is available, use zero for that lag.
+        self._history = np.zeros(L)
         self._coefficients = np.zeros((L, L))
-        self._variances = np.ones(L)  # finite conservative prior, stale until fitted
+        # Start each expert's estimated error variance at one.
+        # Replace it when that AR order fits successfully.
+        self._variances = np.ones(L)
         self._stale_steps = np.zeros(L, dtype=int)
         self._guard_events = 0
         self._seen = 0
@@ -119,9 +137,24 @@ class OnlineARExperts:
         self._fit()
 
     def snapshot(self):
+        """Return a copied dictionary containing:
+        - AR(1)..AR(8)'s coefficients in one (8,8) table;
+        - eight estimated error variances;
+        - recent observations and running covariance estimates;
+        - the warm-up mean and standard deviation;
+        - flags showing which AR orders fitted successfully.
+
+        predict() returns forecasts; snapshot() returns the quantities listed above.
+
+        The caller receives the copy with:
+            before = experts.snapshot()
+
+        The example passes before to the optional gate function. Editing before
+        cannot change the coefficients or arrays stored inside the actual experts.
+        The sizes above use the default L=8 and change with the configured order.
+        """
         self._require_initialized()
         f = self._fit_result
-        # deepcopy includes every ndarray: callers can safely retain/mutate copies.
         return deepcopy({
             "configuration": asdict(self.config), "observations_seen": self._seen,
             "next_target_index": self._seen, "coefficients": self._coefficients,
