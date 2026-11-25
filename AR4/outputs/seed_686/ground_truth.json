@@ -1,0 +1,33 @@
+{
+  "configuration": {
+    "seed": 686,
+    "n_observations": 10000,
+    "burn_in": 200,
+    "radius_cap": 0.9
+  },
+  "order": 4,
+  "channels": 1,
+  "coefficients": [
+    0.7729808336708508,
+    0.19132710773796088,
+    -0.06373863667458628,
+    -0.0050132120073515555
+  ],
+  "gaussian_draw": [
+    1.9038031309415617,
+    1.1606015030933117,
+    -0.9522757026056509,
+    -0.184471515545966
+  ],
+  "stabilization_scale": 0.4060193100368306,
+  "spectral_radius": 0.8999999999991006,
+  "original_spectral_radius": 2.216643341218081,
+  "noise_variance_raw": 1.0,
+  "initial_lags": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "rng": "NumPy PCG64; SeedSequence(seed).spawn(2): coefficients, innovations"
+}
