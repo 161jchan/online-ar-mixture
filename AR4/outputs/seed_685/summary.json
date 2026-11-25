@@ -1,0 +1,99 @@
+{
+  "seed": 685,
+  "n_observations": 10000,
+  "warmup_length": 40,
+  "scored_observations": 9960,
+  "nonfinite_observations": 0,
+  "distribution_raw": {
+    "mean": 0.004861489866168432,
+    "std_ddof0": 1.0397309538570982,
+    "min": -3.873263193706189,
+    "max": 4.363106103695862,
+    "quantiles_01_25_50_75_99": [
+      -2.449037146369202,
+      -0.689882879153584,
+      -0.007102733532554459,
+      0.7063491745741499,
+      2.437333581862744
+    ]
+  },
+  "spectral_radius_truth": 0.7026268148713176,
+  "normalization": {
+    "mean": 0.06323775492808985,
+    "scale": 1.0819465453550332,
+    "ddof": 0,
+    "frozen": true,
+    "warmup_length": 40,
+    "constant_warmup": false
+  },
+  "noise_variance_raw": 1.0,
+  "noise_variance_standardized": 0.8542566945153284,
+  "expert_mse_raw": [
+    1.0729668965155648,
+    1.0787885560932586,
+    1.045552506087085,
+    1.0141843032256233,
+    1.020332050769643,
+    1.025566605141153,
+    1.0309823617052778,
+    1.0349931906292977
+  ],
+  "expert_mse_standardized": [
+    0.9165891543417597,
+    0.9215623460091908,
+    0.8931702277921707,
+    0.8663737305028497,
+    0.8716254849985168,
+    0.8760971381131941,
+    0.8807235844139579,
+    0.8841498618728578
+  ],
+  "guard_events_including_final_fit": 0,
+  "scored_states_with_guard": 0,
+  "stale_fraction_by_order": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "max_stale_steps_by_order": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "all_forecasts_finite": true,
+  "max_expert_spectral_radius": 0.8976403951531355,
+  "forecast_alignment": "predict at index t from observations 0..t-1; t=5L..9999",
+  "direct_yule_walker": {
+    "valid_order_comparisons": 79680,
+    "max_absolute_coefficient_difference": 2.7755575615628914e-16,
+    "max_absolute_variance_difference": 5.551115123125783e-16,
+    "comparison_tolerance": 1e-09
+  },
+  "last_2000_mean_error_variance_standardized_fresh_only": [
+    0.8862217655169168,
+    0.8813862185526014,
+    0.8534311987831422,
+    0.8299454459595937,
+    0.8268124495339647,
+    0.8239060365431587,
+    0.8203186872524262,
+    0.816605600248201
+  ],
+  "interpretation": [
+    "Full-series summaries and ACF are descriptive only; normalization is warm-up-only.",
+    "With fixed forgetting, coefficients fluctuate; exact convergence is not expected.",
+    "Fresh variance estimates decrease within a valid recursion; stale mixed-time orders need not.",
+    "Warm-up mean is an estimate: frozen centering can leave residual mean bias.",
+    "Temporal SD bars describe fluctuations and are not confidence intervals."
+  ]
+}
