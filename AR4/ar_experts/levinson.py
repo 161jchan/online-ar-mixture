@@ -1,4 +1,9 @@
-"""Positive forecast convention: xhat_t = sum_k a_k x_(t-k)."""
+"""Calculate the coefficients for AR(1) through AR(8).
+
+Levinson-Durbin solves the Yule-Walker equations for all eight orders
+together. A direct NumPy solve checks that the calculated coefficients
+and estimated error variances agree. The maximum order is configurable.
+"""
 
 from dataclasses import dataclass
 import numpy as np
@@ -6,22 +11,50 @@ import numpy as np
 
 @dataclass
 class FitResult:
-    coefficients: np.ndarray  # (L,L), row p-1, lag k-1; zeros beyond p
-    variances: np.ndarray  # (L,), standardized squared units online
-    valid: np.ndarray  # fresh this pass; false means retained prior estimate
-    reflections: np.ndarray  # attempted current pass; NaN beyond first failure
+    # L is the maximum AR order: L=8 by default.
+
+    # coefficients is one 8x8 table when L=8.
+    # Row 1 holds AR(1)'s one coefficient, followed by seven zeros.
+    # Row 2 holds AR(2)'s two coefficients, followed by six zeros.
+    # Row 8 holds AR(8)'s eight coefficients.
+    # Each column corresponds to a past lag.
+    # Python counts from zero, so row p is accessed as coefficients[p-1].
+    coefficients: np.ndarray
+
+    # variances contains L estimated prediction-error variances:
+    # one for AR(1), one for AR(2), ..., one for AR(L).
+    variances: np.ndarray
+
+    # valid[p-1] says whether AR(p)'s coefficients were successfully
+    # recalculated during the current observation update.
+    valid: np.ndarray
+
+    # reflections contains the internal numbers used to check each AR order.
+    # If AR(5) fails, stop before trying AR(6), AR(7), and AR(8).
+    # Their uncalculated reflection numbers remain NaN.
+    # Their coefficients keep their previous values; they do not become NaN.
+    reflections: np.ndarray
     working_covariances: np.ndarray
     failed_order: int | None
     failure_reason: str | None
 
 
 def regularized_covariances(covariances, epsilon=1e-6):
+    """Before solving, add epsilon*r[0] to a copy of r[0].
+
+    r[0] estimates the average squared standardized observation. It appears
+    on the diagonal of the Yule-Walker matrix. Assignment Section 1.3
+    requires this small increase to help the coefficient calculation behave
+    better numerically.
+
+    Do not change the stored r[0], or repeated fitting would repeatedly
+    add the adjustment to the running estimate.
+    """
     r = np.array(covariances, dtype=float, copy=True)
     if r.ndim != 1 or len(r) < 2:
         raise ValueError("Need a vector of covariances for lags 0 through L")
     if not np.isfinite(epsilon) or epsilon < 0:
         raise ValueError("epsilon must be finite and nonnegative")
-    # Scalar assignment regularization: R(0) += epsilon*R(0).
     r[0] += epsilon * r[0]
     return r
 
@@ -29,11 +62,19 @@ def regularized_covariances(covariances, epsilon=1e-6):
 def levinson_durbin(covariances, *, epsilon=1e-6,
                     previous_coefficients=None, previous_variances=None,
                     variance_floor=1e-12, reflection_margin=1e-10):
-    """All orders in one O(L^2) recursion, stopping at first invalid order.
+    """Calculate AR(1), save its coefficients, and use that calculation to
+    build AR(2). Save AR(2)'s coefficients and continue through AR(L).
 
-    Failed order AND all higher orders keep their previous coefficients and
-    variances. Defaults are zero forecasts and unit prior variances. These are
-    stale fallbacks, never claimed as solutions to the current Yule-Walker system.
+    AR(1) and AR(2) keep separate coefficient rows. Building AR(2) does not
+    overwrite AR(1).
+
+    If AR(5)'s variance or reflection check fails, stop the recursion.
+    AR(1)..AR(4) keep their newly calculated coefficients and variances.
+    AR(5)..AR(L) keep their coefficients and variances from the previous
+    observation update.
+
+    Before the first successful fit, use zero coefficients and an assumed
+    error variance of one. Mark these starting values as not refreshed.
     """
     if not np.isfinite(variance_floor) or variance_floor <= 0:
         raise ValueError("variance_floor must be positive and finite")
@@ -60,7 +101,8 @@ def levinson_durbin(covariances, *, epsilon=1e-6,
         if not np.isfinite(variance) or variance <= variance_floor:
             failure, reason = p, "nonpositive, tiny, or nonfinite preceding variance"
             break
-        # Copy before reversing/revising; do not update old entries in place.
+        # Copy AR(p-1)'s coefficients before calculating AR(p)'s coefficients.
+        # Every calculation for AR(p) must use the unchanged AR(p-1) values.
         old = a.copy()
         reflection = (r[p] - old @ r[1:p][::-1]) / variance
         reflections[p - 1] = reflection
@@ -81,10 +123,16 @@ def levinson_durbin(covariances, *, epsilon=1e-6,
 
 
 def direct_yule_walker(covariances, order, *, epsilon=1e-6):
-    """Independent dense solve of the SAME regularized Toeplitz equations.
+    """Calculate AR(p)'s coefficients a second way, using np.linalg.solve
+    instead of Levinson-Durbin. Section 1.4 requires this check.
 
-    Return coefficients and Schur-complement variance; no recursion or fallback.
-    Caller compares only orders accepted by the guarded recursion.
+    Both methods receive the same covariance estimates and regularization.
+    After solving for the coefficients, calculate the estimated error variance:
+        r[0] - coefficients @ r[1:p+1]
+
+    Compare both the coefficients and error variance with Levinson-Durbin.
+    This checks agreement between the two solvers, not agreement with the
+    real coefficients used to generate the data.
     """
     r = regularized_covariances(covariances, epsilon)
     if not 1 <= order < len(r):
