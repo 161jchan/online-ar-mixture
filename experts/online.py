@@ -9,7 +9,7 @@ OnlineARExperts calls the Levinson-Durbin fitting code itself.
 from dataclasses import asdict, dataclass
 from copy import deepcopy
 import numpy as np
-from .levinson import levinson_durbin
+from .scalar import levinson_durbin
 
 
 @dataclass(frozen=True)
