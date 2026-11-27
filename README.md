@@ -1,19 +1,18 @@
 # Online Mixture of Autoregressive Experts
 
-## AR(4)
+## Stationary AR(4)
 
-Stationary AR(4) data with online AR(1) through AR(8) predictors.
+Stationary, single-channel AR(4) data with online AR(1) through AR(8) predictors.
 
 ### Reproduce the figures
 
 From the repository root, run:
 
 ```powershell
-cd AR4
-python -m ar_experts.diagnostics
+python -m experiments.stationary
 ```
 
-Figures are saved as PNG and PDF files in `AR4/outputs/seed_685/`, `seed_686/`, and `seed_687/`.
+Figures are saved as PNG and PDF files under `outputs/stationary/n1/seed_685/`, with equivalent folders for seeds 686 and 687. The observations and real generating coefficients are saved separately under `data/generated/stationary/n1/seed_685/`, again with one folder per seed.
 
 ### Results
 
@@ -21,11 +20,13 @@ AR(4) had the lowest average forecast MSE across the three seeds: **1.0345**. Hi
 
 ### Files
 
-- `ar_experts/data.py`: Generates seeded AR(4) observations and saves the real generating coefficients.
-- `ar_experts/levinson.py`: Calculates AR coefficients using Levinson–Durbin and checks them with a direct solve.
-- `ar_experts/experts.py`: Stores and updates the eight predictors’ coefficients and recent observations.
-- `ar_experts/example.py`: Shows where Tasnuba’s gate connects to the prediction-and-update loop.
-- `ar_experts/diagnostics.py`: Runs the stationary experiment and saves figures and numerical results.
-- `ar_experts/__init__.py`: Makes the generator and expert classes available for import.
-- `tests/test_pipeline.py`: Tests coefficient calculations, reproducibility, prediction timing, and failed fits.
-- `outputs/`: Contains generated observations, forecasts, figures, and results for each seed.
+- `data/synthetic.py`: Generates seeded AR(4) observations and returns the real generating coefficients.
+- `experts/scalar.py`: Calculates scalar AR coefficients using Levinson–Durbin and checks them with a direct solve.
+- `experts/online.py`: Stores and updates the eight predictors' coefficients and recent observations.
+- `experiments/stationary.py`: Runs the stationary experiment and saves figures and numerical results.
+- `experiments/gate_example.py`: Shows where Tasnuba's gate connects; run with `python -m experiments.gate_example`.
+- `tests/test_pipeline.py`: Tests coefficient calculations, reproducibility, prediction timing, and failed fits. Run with `python -m unittest discover -s tests -v`.
+- `data/generated/`: Contains saved synthetic observations and real generating coefficients.
+- `outputs/`: Contains forecasts, figures, and results, grouped by experiment, channel count, and seed.
+
+Only the stationary scalar experiment is implemented. Real-data loaders, multichannel experts, switching/drifting runners, `gating/`, and `evaluation/` will be added as that work is implemented.
