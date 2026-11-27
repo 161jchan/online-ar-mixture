@@ -1,0 +1,970 @@
+{
+  "configuration": {
+    "seed": 687,
+    "n_observations": 10000,
+    "burn_in": 200,
+    "radius_cap": 0.9,
+    "channels": 1
+  },
+  "kind": "switching",
+  "channels": 1,
+  "regime_length": 500,
+  "order_cycle": [
+    2,
+    6,
+    3,
+    8
+  ],
+  "n_regimes": 20,
+  "switch_indices": [
+    500,
+    1000,
+    1500,
+    2000,
+    2500,
+    3000,
+    3500,
+    4000,
+    4500,
+    5000,
+    5500,
+    6000,
+    6500,
+    7000,
+    7500,
+    8000,
+    8500,
+    9000,
+    9500
+  ],
+  "regimes": [
+    {
+      "regime_index": 0,
+      "start_index": 0,
+      "stop_index": 500,
+      "order": 2,
+      "coefficients": [
+        1.298414095142123,
+        -0.8099999999983803
+      ],
+      "gaussian_draw": [
+        1.5368269570291566,
+        -1.1347717500939434
+      ],
+      "stabilization_scale": 0.8448668141871287,
+      "spectral_radius": 0.8999999999991003,
+      "original_spectral_radius": 1.0652566592582011,
+      "initial_lags": [
+        0.0,
+        0.0
+      ],
+      "retained_initial_lags": [
+        1.0232531564945402,
+        0.6505525325820364
+      ],
+      "coefficient_spawn_key": [
+        0,
+        0
+      ],
+      "noise_spawn_key": [
+        0,
+        1
+      ],
+      "burn_in_discarded": 200,
+      "simulated_observations": 700
+    },
+    {
+      "regime_index": 1,
+      "start_index": 500,
+      "stop_index": 1000,
+      "order": 6,
+      "coefficients": [
+        0.2123665632766435,
+        -0.6655035012320729,
+        -0.01606978894793662,
+        0.06482182847789904,
+        -0.002618613416869161,
+        -0.04863353183540555
+      ],
+      "gaussian_draw": [
+        0.38235623694933074,
+        -2.1573192774876815,
+        -0.09378994743411134,
+        0.6811604701970732,
+        -0.04954291863104523,
+        -1.6566396390568363
+      ],
+      "stabilization_scale": 0.5554154548936676,
+      "spectral_radius": 0.8999999999990997,
+      "original_spectral_radius": 1.6204086365789045,
+      "initial_lags": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "retained_initial_lags": [
+        -0.10583028827143022,
+        -1.347248025497561,
+        0.11085787395941582,
+        0.11290058987887752,
+        1.1338118260591221,
+        -1.4508430618340693
+      ],
+      "coefficient_spawn_key": [
+        1,
+        0
+      ],
+      "noise_spawn_key": [
+        1,
+        1
+      ],
+      "burn_in_discarded": 200,
+      "simulated_observations": 700
+    },
+    {
+      "regime_index": 2,
+      "start_index": 1000,
+      "stop_index": 1500,
+      "order": 3,
+      "coefficients": [
+        -0.04070754320115701,
+        0.6316663487190959,
+        0.1934733961440665
+      ],
+      "gaussian_draw": [
+        -0.06604383926216743,
+        1.6626566725355565,
+        0.8262158326131048
+      ],
+      "stabilization_scale": 0.6163715443550225,
+      "spectral_radius": 0.8999999999990999,
+      "original_spectral_radius": 1.460158257209731,
+      "initial_lags": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "retained_initial_lags": [
+        -0.9194070460210506,
+        0.863996166165748,
+        -0.5321642225896843
+      ],
+      "coefficient_spawn_key": [
+        2,
+        0
+      ],
+      "noise_spawn_key": [
+        2,
+        1
+      ],
+      "burn_in_discarded": 200,
+      "simulated_observations": 700
+    },
+    {
+      "regime_index": 3,
+      "start_index": 1500,
+      "stop_index": 2000,
+      "order": 8,
+      "coefficients": [
+        -0.7734869475886863,
+        -0.18856660123660884,
+        0.09572523786177853,
+        -0.00598551079480085,
+        -0.09652137200342725,
+        0.051848305588239045,
+        -0.07917641631301342,
+        0.0375547308430529
+      ],
+      "gaussian_draw": [
+        -1.1526516190953426,
+        -0.41875009991795875,
+        0.3167828631190307,
+        -0.029517632342298598,
+        -0.7093308728058019,
+        0.5678125917624579,
+        -1.2921453439629895,
+        0.9133248097903368
+      ],
+      "stabilization_scale": 0.6710500681860463,
+      "spectral_radius": 0.8999999999990995,
+      "original_spectral_radius": 1.3411815938443183,
+      "initial_lags": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "retained_initial_lags": [
+        1.324457798830132,
+        -2.3796151930991747,
+        1.8688888116064502,
+        -1.010974254064463,
+        0.23812098978674978,
+        -1.1818348609340183,
+        0.5223730060490516,
+        -0.6586897421945268
+      ],
+      "coefficient_spawn_key": [
+        3,
+        0
+      ],
+      "noise_spawn_key": [
+        3,
+        1
+      ],
+      "burn_in_discarded": 200,
+      "simulated_observations": 700
+    },
+    {
+      "regime_index": 4,
+      "start_index": 2000,
+      "stop_index": 2500,
+      "order": 2,
+      "coefficients": [
+        -0.8297068089285057,
+        -0.80999999999838
+      ],
+      "gaussian_draw": [
+        -1.2313124980424865,
+        -1.783907313477189
+      ],
+      "stabilization_scale": 0.6738393464271298,
+      "spectral_radius": 0.8999999999991001,
+      "original_spectral_radius": 1.33562993133472,
+      "initial_lags": [
+        0.0,
+        0.0
+      ],
+      "retained_initial_lags": [
+        -0.6091683380172634,
+        1.0833116453695966
+      ],
+      "coefficient_spawn_key": [
+        4,
+        0
+      ],
+      "noise_spawn_key": [
+        4,
+        1
+      ],
+      "burn_in_discarded": 200,
+      "simulated_observations": 700
+    },
+    {
+      "regime_index": 5,
+      "start_index": 2500,
+      "stop_index": 3000,
+      "order": 6,
+      "coefficients": [
+        0.67484454173773,
+        0.4892406325979307,
+        -0.41975480074636234,
+        -0.036273748564252695,
+        -0.2034926922133085,
+        0.09571202727977567
+      ],
+      "gaussian_draw": [
+        0.8707478727482391,
+        0.8145164957800893,
+        -0.9016992730561192,
+        -0.1005419186254616,
+        -0.7277667844516709,
+        0.4416707212927776
+      ],
+      "stabilization_scale": 0.7750171580756179,
+      "spectral_radius": 0.8999999999991006,
+      "original_spectral_radius": 1.161264612816853,
+      "initial_lags": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "retained_initial_lags": [
+        -2.326784770177629,
+        -1.4559118247567993,
+        -4.175159933629877,
+        -4.3706643610358435,
+        -4.61168128999849,
+        -2.5666229481480585
+      ],
+      "coefficient_spawn_key": [
+        5,
+        0
+      ],
+      "noise_spawn_key": [
+        5,
+        1
+      ],
+      "burn_in_discarded": 200,
+      "simulated_observations": 700
+    },
+    {
+      "regime_index": 6,
+      "start_index": 3000,
+      "stop_index": 3500,
+      "order": 3,
+      "coefficients": [
+        0.7105146863312508,
+        -0.5989757235013425,
+        -0.18262219809188912
+      ],
+      "gaussian_draw": [
+        0.8520192725264044,
+        -0.8613148588097437,
+        -0.31490723867091236
+      ],
+      "stabilization_scale": 0.833918561753228,
+      "spectral_radius": 0.8999999999991001,
+      "original_spectral_radius": 1.079242076236968,
+      "initial_lags": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "retained_initial_lags": [
+        1.87462456100139,
+        0.6654590409197603,
+        -0.9949597782987938
+      ],
+      "coefficient_spawn_key": [
+        6,
+        0
+      ],
+      "noise_spawn_key": [
+        6,
+        1
+      ],
+      "burn_in_discarded": 200,
+      "simulated_observations": 700
+    },
+    {
+      "regime_index": 7,
+      "start_index": 3500,
+      "stop_index": 4000,
+      "order": 8,
+      "coefficients": [
+        0.2852586693756566,
+        0.168918814663601,
+        -0.4154488259454931,
+        0.1799633763170193,
+        0.08481945093896598,
+        0.11845821068335115,
+        0.08120748940863277,
+        0.10063162412877648
+      ],
+      "gaussian_draw": [
+        0.3948409739765479,
+        0.323627002104617,
+        -1.101710842167966,
+        0.6605680776947281,
+        0.4309354969735888,
+        0.8330390175602842,
+        0.7904594967257152,
+        1.3558179577449183
+      ],
+      "stabilization_scale": 0.7224647090263735,
+      "spectral_radius": 0.8999999999990992,
+      "original_spectral_radius": 1.2457355892331146,
+      "initial_lags": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "retained_initial_lags": [
+        1.7957499250210573,
+        -0.12505694309741494,
+        -1.6881410282196074,
+        -1.1935846913344226,
+        0.2118902117178705,
+        -0.5400561439651906,
+        2.0244922601432567,
+        0.5604195515250402
+      ],
+      "coefficient_spawn_key": [
+        7,
+        0
+      ],
+      "noise_spawn_key": [
+        7,
+        1
+      ],
+      "burn_in_discarded": 200,
+      "simulated_observations": 700
+    },
+    {
+      "regime_index": 8,
+      "start_index": 4000,
+      "stop_index": 4500,
+      "order": 2,
+      "coefficients": [
+        -0.47769559755346463,
+        0.3800739622006918
+      ],
+      "gaussian_draw": [
+        -0.7217426991840605,
+        0.8676217678798067
+      ],
+      "stabilization_scale": 0.661864121512425,
+      "spectral_radius": 0.8999999999991001,
+      "original_spectral_radius": 1.3597957205211713,
+      "initial_lags": [
+        0.0,
+        0.0
+      ],
+      "retained_initial_lags": [
+        0.7004757850041623,
+        -2.1785551695656844
+      ],
+      "coefficient_spawn_key": [
+        8,
+        0
+      ],
+      "noise_spawn_key": [
+        8,
+        1
+      ],
+      "burn_in_discarded": 200,
+      "simulated_observations": 700
+    },
+    {
+      "regime_index": 9,
+      "start_index": 4500,
+      "stop_index": 5000,
+      "order": 6,
+      "coefficients": [
+        0.043438178693567524,
+        -0.43293418218859003,
+        -0.07573429772171668,
+        -0.01656542253476974,
+        0.2825874055201244,
+        0.0064627139110759275
+      ],
+      "gaussian_draw": [
+        0.06922129741061828,
+        -1.0994060729683908,
+        -0.3064763627984852,
+        -0.10682552297997934,
+        2.903978784781266,
+        0.10583363084185879
+      ],
+      "stabilization_scale": 0.627526214018986,
+      "spectral_radius": 0.8999999999990993,
+      "original_spectral_radius": 1.434203033902055,
+      "initial_lags": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "retained_initial_lags": [
+        0.4132890146237627,
+        1.2716974924395463,
+        1.3522726249156833,
+        -0.5419232274747456,
+        -0.6908108609130383,
+        0.34146303963199354
+      ],
+      "coefficient_spawn_key": [
+        9,
+        0
+      ],
+      "noise_spawn_key": [
+        9,
+        1
+      ],
+      "burn_in_discarded": 200,
+      "simulated_observations": 700
+    },
+    {
+      "regime_index": 10,
+      "start_index": 5000,
+      "stop_index": 5500,
+      "order": 3,
+      "coefficients": [
+        0.719148569250056,
+        0.2032932591920103,
+        -0.036474274366194
+      ],
+      "gaussian_draw": [
+        1.4117949787296653,
+        0.7834819631498052,
+        -0.2759597209553767
+      ],
+      "stabilization_scale": 0.509385980319286,
+      "spectral_radius": 0.8999999999990995,
+      "original_spectral_radius": 1.766833078984575,
+      "initial_lags": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "retained_initial_lags": [
+        3.018073938825966,
+        2.4370483755577697,
+        1.3817497238074479
+      ],
+      "coefficient_spawn_key": [
+        10,
+        0
+      ],
+      "noise_spawn_key": [
+        10,
+        1
+      ],
+      "burn_in_discarded": 200,
+      "simulated_observations": 700
+    },
+    {
+      "regime_index": 11,
+      "start_index": 5500,
+      "stop_index": 6000,
+      "order": 8,
+      "coefficients": [
+        -0.6779257796265149,
+        0.09193806052314647,
+        -0.06804957149945424,
+        -0.10224026951557086,
+        0.0779755004158318,
+        0.11230572951022724,
+        -0.015905392580035788,
+        0.03581665128342788
+      ],
+      "gaussian_draw": [
+        -1.1097733459400279,
+        0.24637669164911266,
+        -0.2985257628892089,
+        -0.7342273337648026,
+        0.916682359509462,
+        2.1612985261369086,
+        -0.5010826639473684,
+        1.8471497435243291
+      ],
+      "stabilization_scale": 0.6108686806244038,
+      "spectral_radius": 0.8999999999990987,
+      "original_spectral_radius": 1.4733117420247486,
+      "initial_lags": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "retained_initial_lags": [
+        -1.220627900232689,
+        0.1301748085765997,
+        -1.149632257208731,
+        0.16760025129663014,
+        2.2480409272847517,
+        -2.124012312188529,
+        0.2243042877410425,
+        -0.6778945653211413
+      ],
+      "coefficient_spawn_key": [
+        11,
+        0
+      ],
+      "noise_spawn_key": [
+        11,
+        1
+      ],
+      "burn_in_discarded": 200,
+      "simulated_observations": 700
+    },
+    {
+      "regime_index": 12,
+      "start_index": 6000,
+      "stop_index": 6500,
+      "order": 2,
+      "coefficients": [
+        -1.795318751001587,
+        -0.8099999999983799
+      ],
+      "gaussian_draw": [
+        -2.453450259536659,
+        -1.512712517001129
+      ],
+      "stabilization_scale": 0.7317526589435068,
+      "spectral_radius": 0.8999999999991,
+      "original_spectral_radius": 1.2299237850375646,
+      "initial_lags": [
+        0.0,
+        0.0
+      ],
+      "retained_initial_lags": [
+        22.14588299013338,
+        -22.74028047564193
+      ],
+      "coefficient_spawn_key": [
+        12,
+        0
+      ],
+      "noise_spawn_key": [
+        12,
+        1
+      ],
+      "burn_in_discarded": 200,
+      "simulated_observations": 700
+    },
+    {
+      "regime_index": 13,
+      "start_index": 6500,
+      "stop_index": 7000,
+      "order": 6,
+      "coefficients": [
+        -0.1282553496878439,
+        -0.17191695833227005,
+        0.7327369012742946,
+        0.12734549288629954,
+        0.12410412643957675,
+        -0.029039546265600475
+      ],
+      "gaussian_draw": [
+        -0.19073726562947,
+        -0.3802234037037917,
+        2.4100622119671375,
+        0.6229078898473843,
+        0.9027895810190552,
+        -0.3141595064448926
+      ],
+      "stabilization_scale": 0.6724189385046303,
+      "spectral_radius": 0.8999999999990995,
+      "original_spectral_radius": 1.3384512964500666,
+      "initial_lags": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "retained_initial_lags": [
+        0.9828097185819025,
+        -1.047157941048761,
+        -0.2281504698325748,
+        0.7009806022193603,
+        0.4363786658966029,
+        0.11564435805475726
+      ],
+      "coefficient_spawn_key": [
+        13,
+        0
+      ],
+      "noise_spawn_key": [
+        13,
+        1
+      ],
+      "burn_in_discarded": 200,
+      "simulated_observations": 700
+    },
+    {
+      "regime_index": 14,
+      "start_index": 7000,
+      "stop_index": 7500,
+      "order": 3,
+      "coefficients": [
+        0.5106313905508649,
+        -0.43128278691274435,
+        -0.3328654519875023
+      ],
+      "gaussian_draw": [
+        0.633772712557891,
+        -0.664376373822347,
+        -0.6364243743108522
+      ],
+      "stabilization_scale": 0.8057011298103531,
+      "spectral_radius": 0.8999999999991004,
+      "original_spectral_radius": 1.1170395158946136,
+      "initial_lags": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "retained_initial_lags": [
+        -2.3609102775976707,
+        -0.6056033441485358,
+        1.882356541759008
+      ],
+      "coefficient_spawn_key": [
+        14,
+        0
+      ],
+      "noise_spawn_key": [
+        14,
+        1
+      ],
+      "burn_in_discarded": 200,
+      "simulated_observations": 700
+    },
+    {
+      "regime_index": 15,
+      "start_index": 7500,
+      "stop_index": 8000,
+      "order": 8,
+      "coefficients": [
+        -0.4232901585256438,
+        0.4661968987266477,
+        -0.0351868538385594,
+        -0.04290185264623801,
+        0.013074261371518132,
+        -0.007383209126127223,
+        0.001196130344598806,
+        0.004211166760102356
+      ],
+      "gaussian_draw": [
+        -0.8841560096561609,
+        2.033999510196176,
+        -0.32066579206288415,
+        -0.8166556566657757,
+        0.5198413507640456,
+        -0.613182231201558,
+        0.20749786458767944,
+        1.525907807138167
+      ],
+      "stabilization_scale": 0.47875053033938764,
+      "spectral_radius": 0.8999999999991009,
+      "original_spectral_radius": 1.8798934788878197,
+      "initial_lags": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "retained_initial_lags": [
+        1.1994145318587468,
+        -0.932247507793706,
+        1.938952687162189,
+        -2.2732603715920026,
+        2.5627466833041814,
+        -1.3044503637337124,
+        1.3110734618050732,
+        -1.016647636787334
+      ],
+      "coefficient_spawn_key": [
+        15,
+        0
+      ],
+      "noise_spawn_key": [
+        15,
+        1
+      ],
+      "burn_in_discarded": 200,
+      "simulated_observations": 700
+    },
+    {
+      "regime_index": 16,
+      "start_index": 8000,
+      "stop_index": 8500,
+      "order": 2,
+      "coefficients": [
+        -0.4521042874314432,
+        0.2551711094627602
+      ],
+      "gaussian_draw": [
+        -0.4521042874314432,
+        0.2551711094627602
+      ],
+      "stabilization_scale": 1.0,
+      "spectral_radius": 0.7794694195042837,
+      "original_spectral_radius": 0.7794694195042837,
+      "initial_lags": [
+        0.0,
+        0.0
+      ],
+      "retained_initial_lags": [
+        -0.22291688468357035,
+        0.4470088904196054
+      ],
+      "coefficient_spawn_key": [
+        16,
+        0
+      ],
+      "noise_spawn_key": [
+        16,
+        1
+      ],
+      "burn_in_discarded": 200,
+      "simulated_observations": 700
+    },
+    {
+      "regime_index": 17,
+      "start_index": 8500,
+      "stop_index": 9000,
+      "order": 6,
+      "coefficients": [
+        0.17138649992482755,
+        -0.5164874843801425,
+        0.11416341507329686,
+        -0.6944333693689978,
+        0.09687729793631912,
+        -0.09561725314574027
+      ],
+      "gaussian_draw": [
+        0.2086746073195278,
+        -0.7656773367394316,
+        0.20606580857920107,
+        -1.5261687714269512,
+        0.25923103479602916,
+        -0.31152595418226947
+      ],
+      "stabilization_scale": 0.8213097996269197,
+      "spectral_radius": 0.8999999999991004,
+      "original_spectral_radius": 1.0958106190963817,
+      "initial_lags": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "retained_initial_lags": [
+        -2.340568429099147,
+        0.061905873771114034,
+        0.19753404962796295,
+        0.45019321267235346,
+        0.8170656029255897,
+        -0.4189453904514728
+      ],
+      "coefficient_spawn_key": [
+        17,
+        0
+      ],
+      "noise_spawn_key": [
+        17,
+        1
+      ],
+      "burn_in_discarded": 200,
+      "simulated_observations": 700
+    },
+    {
+      "regime_index": 18,
+      "start_index": 9000,
+      "stop_index": 9500,
+      "order": 3,
+      "coefficients": [
+        -0.1611254935178628,
+        -0.4108884635987336,
+        -0.5811195682321176
+      ],
+      "gaussian_draw": [
+        -0.18629595751339334,
+        -0.5492907542301504,
+        -0.8982206008351552
+      ],
+      "stabilization_scale": 0.864889907803174,
+      "spectral_radius": 0.8999999999991011,
+      "original_spectral_radius": 1.0405948686406874,
+      "initial_lags": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "retained_initial_lags": [
+        -0.4638575414228688,
+        -1.6344511519278702,
+        -0.468610109520191
+      ],
+      "coefficient_spawn_key": [
+        18,
+        0
+      ],
+      "noise_spawn_key": [
+        18,
+        1
+      ],
+      "burn_in_discarded": 200,
+      "simulated_observations": 700
+    },
+    {
+      "regime_index": 19,
+      "start_index": 9500,
+      "stop_index": 10000,
+      "order": 8,
+      "coefficients": [
+        0.13784117745067553,
+        -0.38142957479323536,
+        0.04095232239487125,
+        0.10152861804379672,
+        0.3112805525375249,
+        0.02343898013195792,
+        0.0651768695786633,
+        -0.08220053656184226
+      ],
+      "gaussian_draw": [
+        0.19155648482570695,
+        -0.7366312400891849,
+        0.10990872996389713,
+        0.3786692272801419,
+        1.6133976199130347,
+        0.16882859987118665,
+        0.6524071171933293,
+        -1.1434514501001714
+      ],
+      "stabilization_scale": 0.719585022538361,
+      "spectral_radius": 0.8999999999990995,
+      "original_spectral_radius": 1.2507208624553066,
+      "initial_lags": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "retained_initial_lags": [
+        2.120929393900572,
+        0.6831362561415912,
+        -0.6118125241848545,
+        -0.8493136649309684,
+        -1.0103975932535094,
+        0.6333323358561546,
+        0.6156251727414725,
+        -1.6168961530651194
+      ],
+      "coefficient_spawn_key": [
+        19,
+        0
+      ],
+      "noise_spawn_key": [
+        19,
+        1
+      ],
+      "burn_in_discarded": 200,
+      "simulated_observations": 700
+    }
+  ],
+  "noise_variance_raw": 1.0,
+  "noise_covariance_raw": [
+    [
+      1.0
+    ]
+  ],
+  "initialization": "Independent zero start and discarded burn-in for each regime",
+  "rng": "PCG64; SeedSequence(seed).spawn(n_regimes); each child spawns coefficient and noise streams"
+}
