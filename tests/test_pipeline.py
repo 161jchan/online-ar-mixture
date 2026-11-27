@@ -8,9 +8,10 @@ produce different data, but the calculations must still pass the checks.
 from copy import deepcopy
 import unittest
 import numpy as np
-from ar_experts import DataConfig, ExpertConfig, OnlineARExperts, generate_stationary_ar4
-from ar_experts.data import companion, spectral_radius, stabilize
-from ar_experts.levinson import direct_yule_walker, levinson_durbin
+from data import DataConfig, generate_stationary_ar4
+from experts import ExpertConfig, OnlineARExperts
+from data.synthetic import companion, spectral_radius, stabilize
+from experts.scalar import direct_yule_walker, levinson_durbin
 
 
 def population_covariances(a, max_lag=8, noise_variance=1.0):
