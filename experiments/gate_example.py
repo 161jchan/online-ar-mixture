@@ -8,8 +8,8 @@ in her own runner and insert her gate at the marked points.
 """
 
 import numpy as np
-from .data import DataConfig, generate_stationary_ar4
-from .experts import OnlineARExperts
+from data.synthetic import DataConfig, generate_stationary_ar4
+from experts.online import OnlineARExperts
 
 
 def stream_with_gate(values, gate_predict=None, gate_update=None):
