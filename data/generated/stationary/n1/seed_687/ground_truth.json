@@ -3,10 +3,12 @@
     "seed": 687,
     "n_observations": 10000,
     "burn_in": 200,
-    "radius_cap": 0.9
+    "radius_cap": 0.9,
+    "channels": 1
   },
-  "order": 4,
+  "kind": "stationary",
   "channels": 1,
+  "order": 4,
   "coefficients": [
     -0.13034623977355253,
     -0.4215732662448595,
@@ -22,12 +24,31 @@
   "stabilization_scale": 0.7158076506711178,
   "spectral_radius": 0.8999999999991005,
   "original_spectral_radius": 1.257321012363153,
-  "noise_variance_raw": 1.0,
   "initial_lags": [
     0.0,
     0.0,
     0.0,
     0.0
+  ],
+  "retained_initial_lags": [
+    1.6162041951884651,
+    1.7734235640750342,
+    -0.812846635024874,
+    0.3711774601756924
+  ],
+  "coefficient_spawn_key": [
+    0
+  ],
+  "noise_spawn_key": [
+    1
+  ],
+  "burn_in_discarded": 200,
+  "simulated_observations": 10200,
+  "noise_variance_raw": 1.0,
+  "noise_covariance_raw": [
+    [
+      1.0
+    ]
   ],
   "rng": "NumPy PCG64; SeedSequence(seed).spawn(2): coefficients, innovations"
 }
