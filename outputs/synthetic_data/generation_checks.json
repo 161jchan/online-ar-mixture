@@ -1,0 +1,987 @@
+{
+  "seeds": [
+    685,
+    686,
+    687
+  ],
+  "dataset_count": 21,
+  "python": "3.12.14",
+  "numpy": "2.5.5",
+  "checks": [
+    {
+      "kind": "stationary",
+      "channels": 1,
+      "seed": 685,
+      "retained_observations": 10000,
+      "all_observations_finite": true,
+      "regime_length": null,
+      "orders": [
+        4
+      ],
+      "switch_count": 0,
+      "maximum_true_spectral_radius": 0.7026268148713176,
+      "burn_in_per_regime": 200,
+      "simulated_observations": 10200,
+      "innovation_equation_max_abs_error": 4.440892098500626e-16,
+      "innovation_mean": [
+        0.004116134819629094
+      ],
+      "innovation_covariance_empirical": [
+        [
+          0.9950735532382842
+        ]
+      ],
+      "raw_observation_mean": [
+        0.004861489866168432
+      ],
+      "raw_observation_std": [
+        1.0397309538570982
+      ],
+      "observations_sha256": "ab8337a6a50b45f9b0e8bb68c00a90c2f0f1d6f27312127568a731d148400786",
+      "data_directory": "data/generated/stationary/n1/seed_685"
+    },
+    {
+      "kind": "stationary",
+      "channels": 1,
+      "seed": 686,
+      "retained_observations": 10000,
+      "all_observations_finite": true,
+      "regime_length": null,
+      "orders": [
+        4
+      ],
+      "switch_count": 0,
+      "maximum_true_spectral_radius": 0.8999999999991006,
+      "burn_in_per_regime": 200,
+      "simulated_observations": 10200,
+      "innovation_equation_max_abs_error": 4.440892098500626e-16,
+      "innovation_mean": [
+        0.007819874868834044
+      ],
+      "innovation_covariance_empirical": [
+        [
+          1.018700728041057
+        ]
+      ],
+      "raw_observation_mean": [
+        0.07190199914291333
+      ],
+      "raw_observation_std": [
+        2.2716683451663098
+      ],
+      "observations_sha256": "624c5d4ba7e630c4e37b3375eae3896f776480212516bcf415fdc32da73fac4a",
+      "data_directory": "data/generated/stationary/n1/seed_686"
+    },
+    {
+      "kind": "stationary",
+      "channels": 1,
+      "seed": 687,
+      "retained_observations": 10000,
+      "all_observations_finite": true,
+      "regime_length": null,
+      "orders": [
+        4
+      ],
+      "switch_count": 0,
+      "maximum_true_spectral_radius": 0.8999999999991005,
+      "burn_in_per_regime": 200,
+      "simulated_observations": 10200,
+      "innovation_equation_max_abs_error": 4.440892098500626e-16,
+      "innovation_mean": [
+        -0.008230191861135135
+      ],
+      "innovation_covariance_empirical": [
+        [
+          1.0009950958193592
+        ]
+      ],
+      "raw_observation_mean": [
+        -0.00788563419833301
+      ],
+      "raw_observation_std": [
+        1.3925108527158443
+      ],
+      "observations_sha256": "22c65ee94ca2072a72bacd1949cd8be176d8a0f52cbb760fd843a5638c58b0b8",
+      "data_directory": "data/generated/stationary/n1/seed_687"
+    },
+    {
+      "kind": "switching",
+      "channels": 1,
+      "seed": 685,
+      "retained_observations": 10000,
+      "all_observations_finite": true,
+      "regime_length": 500,
+      "orders": [
+        2,
+        6,
+        3,
+        8,
+        2,
+        6,
+        3,
+        8,
+        2,
+        6,
+        3,
+        8,
+        2,
+        6,
+        3,
+        8,
+        2,
+        6,
+        3,
+        8
+      ],
+      "switch_count": 19,
+      "maximum_true_spectral_radius": 0.899999999999102,
+      "burn_in_per_regime": 200,
+      "simulated_observations": 14000,
+      "innovation_equation_max_abs_error": 4.440892098500626e-16,
+      "innovation_mean": [
+        0.01221493979105184
+      ],
+      "innovation_covariance_empirical": [
+        [
+          1.0060864555628988
+        ]
+      ],
+      "raw_observation_mean": [
+        0.030193722244204708
+      ],
+      "raw_observation_std": [
+        1.5964696158474032
+      ],
+      "observations_sha256": "841439b909ff04ef91fb1a40c0772b59324f885f6c1374830c47206963822fb9",
+      "data_directory": "data/generated/switching/n1/T500/seed_685"
+    },
+    {
+      "kind": "switching",
+      "channels": 1,
+      "seed": 686,
+      "retained_observations": 10000,
+      "all_observations_finite": true,
+      "regime_length": 500,
+      "orders": [
+        2,
+        6,
+        3,
+        8,
+        2,
+        6,
+        3,
+        8,
+        2,
+        6,
+        3,
+        8,
+        2,
+        6,
+        3,
+        8,
+        2,
+        6,
+        3,
+        8
+      ],
+      "switch_count": 19,
+      "maximum_true_spectral_radius": 0.8999999999991026,
+      "burn_in_per_regime": 200,
+      "simulated_observations": 14000,
+      "innovation_equation_max_abs_error": 8.881784197001252e-16,
+      "innovation_mean": [
+        0.01405341230375192
+      ],
+      "innovation_covariance_empirical": [
+        [
+          1.0038970840398014
+        ]
+      ],
+      "raw_observation_mean": [
+        0.014863138138348782
+      ],
+      "raw_observation_std": [
+        1.9236113891918996
+      ],
+      "observations_sha256": "25b6075ca706ed9001bda21fc0e63fff3c1e6ddfcc0006c0a69cd6b0e45f9b6e",
+      "data_directory": "data/generated/switching/n1/T500/seed_686"
+    },
+    {
+      "kind": "switching",
+      "channels": 1,
+      "seed": 687,
+      "retained_observations": 10000,
+      "all_observations_finite": true,
+      "regime_length": 500,
+      "orders": [
+        2,
+        6,
+        3,
+        8,
+        2,
+        6,
+        3,
+        8,
+        2,
+        6,
+        3,
+        8,
+        2,
+        6,
+        3,
+        8,
+        2,
+        6,
+        3,
+        8
+      ],
+      "switch_count": 19,
+      "maximum_true_spectral_radius": 0.8999999999991011,
+      "burn_in_per_regime": 200,
+      "simulated_observations": 14000,
+      "innovation_equation_max_abs_error": 3.1086244689504383e-15,
+      "innovation_mean": [
+        0.004856970928632157
+      ],
+      "innovation_covariance_empirical": [
+        [
+          0.9942755590459763
+        ]
+      ],
+      "raw_observation_mean": [
+        -0.0035875356017526427
+      ],
+      "raw_observation_std": [
+        3.237069458665816
+      ],
+      "observations_sha256": "0a73e87df457aba59be1479e4ce166ca0904a6ad287f99711a3a714492662e85",
+      "data_directory": "data/generated/switching/n1/T500/seed_687"
+    },
+    {
+      "kind": "switching",
+      "channels": 1,
+      "seed": 685,
+      "retained_observations": 10000,
+      "all_observations_finite": true,
+      "regime_length": 2000,
+      "orders": [
+        2,
+        6,
+        3,
+        8,
+        2
+      ],
+      "switch_count": 4,
+      "maximum_true_spectral_radius": 0.899999999999102,
+      "burn_in_per_regime": 200,
+      "simulated_observations": 11000,
+      "innovation_equation_max_abs_error": 4.440892098500626e-16,
+      "innovation_mean": [
+        -0.009075165968438739
+      ],
+      "innovation_covariance_empirical": [
+        [
+          0.9782205891251239
+        ]
+      ],
+      "raw_observation_mean": [
+        -0.0028995446633977152
+      ],
+      "raw_observation_std": [
+        1.4221676029104335
+      ],
+      "observations_sha256": "8e6eb32fd3e00c9f306791634f9ee5848ad0461328e7f80ecf9ba2a4bc27b0d3",
+      "data_directory": "data/generated/switching/n1/T2000/seed_685"
+    },
+    {
+      "kind": "switching",
+      "channels": 1,
+      "seed": 686,
+      "retained_observations": 10000,
+      "all_observations_finite": true,
+      "regime_length": 2000,
+      "orders": [
+        2,
+        6,
+        3,
+        8,
+        2
+      ],
+      "switch_count": 4,
+      "maximum_true_spectral_radius": 0.899999999999101,
+      "burn_in_per_regime": 200,
+      "simulated_observations": 11000,
+      "innovation_equation_max_abs_error": 4.440892098500626e-16,
+      "innovation_mean": [
+        0.023911007552717967
+      ],
+      "innovation_covariance_empirical": [
+        [
+          1.0114297753040247
+        ]
+      ],
+      "raw_observation_mean": [
+        0.01759567788938858
+      ],
+      "raw_observation_std": [
+        1.6037349307194162
+      ],
+      "observations_sha256": "86343c54f8c4e4d5f486d7dc9b6868e7c0032b74b59fae7ac4fbd102b41d6411",
+      "data_directory": "data/generated/switching/n1/T2000/seed_686"
+    },
+    {
+      "kind": "switching",
+      "channels": 1,
+      "seed": 687,
+      "retained_observations": 10000,
+      "all_observations_finite": true,
+      "regime_length": 2000,
+      "orders": [
+        2,
+        6,
+        3,
+        8,
+        2
+      ],
+      "switch_count": 4,
+      "maximum_true_spectral_radius": 0.8999999999991003,
+      "burn_in_per_regime": 200,
+      "simulated_observations": 11000,
+      "innovation_equation_max_abs_error": 8.881784197001252e-16,
+      "innovation_mean": [
+        -0.00039268125539488106
+      ],
+      "innovation_covariance_empirical": [
+        [
+          0.9848732649970405
+        ]
+      ],
+      "raw_observation_mean": [
+        0.01987818652097716
+      ],
+      "raw_observation_std": [
+        1.7607539554029157
+      ],
+      "observations_sha256": "91c140246df1743a8209b37e3f9c79fbd9b9b1bbeaa7084e392b8f62de2a8838",
+      "data_directory": "data/generated/switching/n1/T2000/seed_687"
+    },
+    {
+      "kind": "stationary",
+      "channels": 3,
+      "seed": 685,
+      "retained_observations": 10000,
+      "all_observations_finite": true,
+      "regime_length": null,
+      "orders": [
+        4
+      ],
+      "switch_count": 0,
+      "maximum_true_spectral_radius": 0.8999999999991033,
+      "burn_in_per_regime": 200,
+      "simulated_observations": 10200,
+      "innovation_equation_max_abs_error": 4.440892098500626e-16,
+      "innovation_mean": [
+        -0.00011286184390938796,
+        0.0043712933346808135,
+        -0.01243899650332046
+      ],
+      "innovation_covariance_empirical": [
+        [
+          0.9793027534550988,
+          0.002274993454325522,
+          0.004400248053633775
+        ],
+        [
+          0.002274993454325522,
+          1.0115479452160794,
+          -0.0024186339474317896
+        ],
+        [
+          0.004400248053633775,
+          -0.0024186339474317896,
+          0.9899765568307177
+        ]
+      ],
+      "raw_observation_mean": [
+        -0.005388891937815892,
+        -0.009572149823580112,
+        -0.013256616979184264
+      ],
+      "raw_observation_std": [
+        1.1142442548775378,
+        1.968902750808352,
+        1.4789221995333386
+      ],
+      "observations_sha256": "02a64ba42a8b3f014303eb7675c110702f90103b2bef4c497ed3863ae10e938c",
+      "data_directory": "data/generated/stationary/n3/seed_685"
+    },
+    {
+      "kind": "stationary",
+      "channels": 3,
+      "seed": 686,
+      "retained_observations": 10000,
+      "all_observations_finite": true,
+      "regime_length": null,
+      "orders": [
+        4
+      ],
+      "switch_count": 0,
+      "maximum_true_spectral_radius": 0.8999999999990986,
+      "burn_in_per_regime": 200,
+      "simulated_observations": 10200,
+      "innovation_equation_max_abs_error": 8.881784197001252e-16,
+      "innovation_mean": [
+        0.010505708479821739,
+        -0.017682039497684734,
+        0.005693459400792483
+      ],
+      "innovation_covariance_empirical": [
+        [
+          1.0092544413013909,
+          0.021279101331712243,
+          -0.005842758749189097
+        ],
+        [
+          0.021279101331712243,
+          0.9964226405266281,
+          0.007945938742435904
+        ],
+        [
+          -0.005842758749189097,
+          0.007945938742435904,
+          0.9917704210358673
+        ]
+      ],
+      "raw_observation_mean": [
+        -0.03648317380721859,
+        -0.011346049924093668,
+        -0.009788859896058688
+      ],
+      "raw_observation_std": [
+        3.6378707772516803,
+        2.529931785386439,
+        2.5736633028697202
+      ],
+      "observations_sha256": "6a59466cfbe65bdad8aabd2ce208ff1397c55c9d66e436ae2323bfb79929bece",
+      "data_directory": "data/generated/stationary/n3/seed_686"
+    },
+    {
+      "kind": "stationary",
+      "channels": 3,
+      "seed": 687,
+      "retained_observations": 10000,
+      "all_observations_finite": true,
+      "regime_length": null,
+      "orders": [
+        4
+      ],
+      "switch_count": 0,
+      "maximum_true_spectral_radius": 0.8999999999991017,
+      "burn_in_per_regime": 200,
+      "simulated_observations": 10200,
+      "innovation_equation_max_abs_error": 4.440892098500626e-16,
+      "innovation_mean": [
+        -0.01689719287969098,
+        -0.011677013636068542,
+        0.008314108242578156
+      ],
+      "innovation_covariance_empirical": [
+        [
+          1.001551190157593,
+          0.01652966694309399,
+          0.0004887320857575152
+        ],
+        [
+          0.01652966694309399,
+          1.0219761803148788,
+          0.007274950262777867
+        ],
+        [
+          0.0004887320857575152,
+          0.007274950262777867,
+          1.0000497079679578
+        ]
+      ],
+      "raw_observation_mean": [
+        -0.008243870259736465,
+        -0.017471859848478117,
+        0.0008019320906252316
+      ],
+      "raw_observation_std": [
+        1.6487562069059987,
+        1.8064039549367528,
+        1.579276520364767
+      ],
+      "observations_sha256": "661d6e1850e07265fce1e7dc1101f5deb998937a8a83b8c804353daa2d01381b",
+      "data_directory": "data/generated/stationary/n3/seed_687"
+    },
+    {
+      "kind": "switching",
+      "channels": 3,
+      "seed": 685,
+      "retained_observations": 10000,
+      "all_observations_finite": true,
+      "regime_length": 500,
+      "orders": [
+        2,
+        6,
+        3,
+        8,
+        2,
+        6,
+        3,
+        8,
+        2,
+        6,
+        3,
+        8,
+        2,
+        6,
+        3,
+        8,
+        2,
+        6,
+        3,
+        8
+      ],
+      "switch_count": 19,
+      "maximum_true_spectral_radius": 0.899999999999103,
+      "burn_in_per_regime": 200,
+      "simulated_observations": 14000,
+      "innovation_equation_max_abs_error": 8.881784197001252e-16,
+      "innovation_mean": [
+        0.00016904192524044633,
+        -0.012086970490296351,
+        0.004453698162452394
+      ],
+      "innovation_covariance_empirical": [
+        [
+          0.9877875109622246,
+          0.000911044313228199,
+          -0.016124429270513514
+        ],
+        [
+          0.000911044313228199,
+          0.9920087783549573,
+          -0.004821040944751918
+        ],
+        [
+          -0.016124429270513514,
+          -0.004821040944751918,
+          1.001438072470999
+        ]
+      ],
+      "raw_observation_mean": [
+        0.002132261045058811,
+        0.016933976552510232,
+        0.0016006131078080156
+      ],
+      "raw_observation_std": [
+        1.9140067103041332,
+        1.9815917473587779,
+        1.8433600932078023
+      ],
+      "observations_sha256": "f0828283c1367650724c27289722340dd637c46d3b4414ee064694119fd926f8",
+      "data_directory": "data/generated/switching/n3/T500/seed_685"
+    },
+    {
+      "kind": "switching",
+      "channels": 3,
+      "seed": 686,
+      "retained_observations": 10000,
+      "all_observations_finite": true,
+      "regime_length": 500,
+      "orders": [
+        2,
+        6,
+        3,
+        8,
+        2,
+        6,
+        3,
+        8,
+        2,
+        6,
+        3,
+        8,
+        2,
+        6,
+        3,
+        8,
+        2,
+        6,
+        3,
+        8
+      ],
+      "switch_count": 19,
+      "maximum_true_spectral_radius": 0.899999999999104,
+      "burn_in_per_regime": 200,
+      "simulated_observations": 14000,
+      "innovation_equation_max_abs_error": 6.661338147750939e-16,
+      "innovation_mean": [
+        0.0008144392571226021,
+        0.00039254014669353447,
+        -0.0005366934753130876
+      ],
+      "innovation_covariance_empirical": [
+        [
+          1.0048551565840858,
+          -0.0017165695102014326,
+          0.003165387858867721
+        ],
+        [
+          -0.0017165695102014326,
+          1.0075542343215478,
+          -0.009329529222818652
+        ],
+        [
+          0.003165387858867721,
+          -0.009329529222818652,
+          0.996805099978229
+        ]
+      ],
+      "raw_observation_mean": [
+        0.0018848268489751671,
+        -0.01077091765532235,
+        -0.009307143794085546
+      ],
+      "raw_observation_std": [
+        1.847088878662125,
+        1.6512914343879979,
+        1.6984876629124264
+      ],
+      "observations_sha256": "fa155d2d083101f3e73bd14442d34e509acaf71936c8744caa08ef465f1c8d0f",
+      "data_directory": "data/generated/switching/n3/T500/seed_686"
+    },
+    {
+      "kind": "switching",
+      "channels": 3,
+      "seed": 687,
+      "retained_observations": 10000,
+      "all_observations_finite": true,
+      "regime_length": 500,
+      "orders": [
+        2,
+        6,
+        3,
+        8,
+        2,
+        6,
+        3,
+        8,
+        2,
+        6,
+        3,
+        8,
+        2,
+        6,
+        3,
+        8,
+        2,
+        6,
+        3,
+        8
+      ],
+      "switch_count": 19,
+      "maximum_true_spectral_radius": 0.8999999999991029,
+      "burn_in_per_regime": 200,
+      "simulated_observations": 14000,
+      "innovation_equation_max_abs_error": 8.881784197001252e-16,
+      "innovation_mean": [
+        0.01324986852428083,
+        0.0011848265812170527,
+        -0.004777468124013038
+      ],
+      "innovation_covariance_empirical": [
+        [
+          1.005822045419035,
+          -0.005205307734948472,
+          -0.0025038811524734235
+        ],
+        [
+          -0.005205307734948472,
+          0.9977415386322639,
+          -0.0006968876947726558
+        ],
+        [
+          -0.0025038811524734235,
+          -0.0006968876947726558,
+          0.992988220717958
+        ]
+      ],
+      "raw_observation_mean": [
+        0.049622896234761016,
+        0.03524411089147696,
+        0.05405529721253214
+      ],
+      "raw_observation_std": [
+        1.6232056391185974,
+        1.798874274752634,
+        1.6423128887452663
+      ],
+      "observations_sha256": "a0242213d6903eb130640bb986d04658f89be0155d7f6ae9f8d8104acc59dc58",
+      "data_directory": "data/generated/switching/n3/T500/seed_687"
+    },
+    {
+      "kind": "switching",
+      "channels": 3,
+      "seed": 685,
+      "retained_observations": 10000,
+      "all_observations_finite": true,
+      "regime_length": 2000,
+      "orders": [
+        2,
+        6,
+        3,
+        8,
+        2
+      ],
+      "switch_count": 4,
+      "maximum_true_spectral_radius": 0.899999999999103,
+      "burn_in_per_regime": 200,
+      "simulated_observations": 11000,
+      "innovation_equation_max_abs_error": 8.881784197001252e-16,
+      "innovation_mean": [
+        -0.0004158692190759333,
+        -0.00011379598063858434,
+        0.0014370434085790903
+      ],
+      "innovation_covariance_empirical": [
+        [
+          1.0196177060354812,
+          -0.0012251872009291021,
+          -0.009507740430945858
+        ],
+        [
+          -0.0012251872009291021,
+          1.0101150530325167,
+          0.00019645863541465117
+        ],
+        [
+          -0.009507740430945858,
+          0.00019645863541465117,
+          0.9898228847136166
+        ]
+      ],
+      "raw_observation_mean": [
+        -0.004442054997074835,
+        -0.0026687792730700098,
+        0.024342788245303056
+      ],
+      "raw_observation_std": [
+        1.6640844791765366,
+        1.7794269225687487,
+        1.6794227526511942
+      ],
+      "observations_sha256": "08e829659f1f8ed6b871615d7a6ac4d18f94427b56a128cffd0067293ed0ef3f",
+      "data_directory": "data/generated/switching/n3/T2000/seed_685"
+    },
+    {
+      "kind": "switching",
+      "channels": 3,
+      "seed": 686,
+      "retained_observations": 10000,
+      "all_observations_finite": true,
+      "regime_length": 2000,
+      "orders": [
+        2,
+        6,
+        3,
+        8,
+        2
+      ],
+      "switch_count": 4,
+      "maximum_true_spectral_radius": 0.8999999999991034,
+      "burn_in_per_regime": 200,
+      "simulated_observations": 11000,
+      "innovation_equation_max_abs_error": 8.881784197001252e-16,
+      "innovation_mean": [
+        0.01346055629923752,
+        -0.0050552015417960755,
+        0.009548297950113771
+      ],
+      "innovation_covariance_empirical": [
+        [
+          1.0218813057670955,
+          0.007402241884813621,
+          -0.01759737242620803
+        ],
+        [
+          0.007402241884813621,
+          1.0153178355005918,
+          0.01744295624626408
+        ],
+        [
+          -0.01759737242620803,
+          0.01744295624626408,
+          1.000506529500528
+        ]
+      ],
+      "raw_observation_mean": [
+        0.0035297698832830763,
+        -0.0003784779622834558,
+        0.006045318542144083
+      ],
+      "raw_observation_std": [
+        1.9407922299504927,
+        1.4682675070554756,
+        1.8579411290214387
+      ],
+      "observations_sha256": "2d6a529827920959d9de832eabb211aff269bb2dbcde8be792bb82f02295272d",
+      "data_directory": "data/generated/switching/n3/T2000/seed_686"
+    },
+    {
+      "kind": "switching",
+      "channels": 3,
+      "seed": 687,
+      "retained_observations": 10000,
+      "all_observations_finite": true,
+      "regime_length": 2000,
+      "orders": [
+        2,
+        6,
+        3,
+        8,
+        2
+      ],
+      "switch_count": 4,
+      "maximum_true_spectral_radius": 0.899999999999102,
+      "burn_in_per_regime": 200,
+      "simulated_observations": 11000,
+      "innovation_equation_max_abs_error": 8.881784197001252e-16,
+      "innovation_mean": [
+        0.0007939269833465169,
+        0.0012045118573838843,
+        0.006945407256932571
+      ],
+      "innovation_covariance_empirical": [
+        [
+          1.0203743644293946,
+          0.0027141871135488165,
+          0.004753465387397169
+        ],
+        [
+          0.0027141871135488165,
+          0.9897918331529613,
+          -0.016311437159428906
+        ],
+        [
+          0.004753465387397169,
+          -0.016311437159428906,
+          0.9926818633125039
+        ]
+      ],
+      "raw_observation_mean": [
+        0.05014359637095478,
+        0.02827507616079847,
+        0.09235061421833354
+      ],
+      "raw_observation_std": [
+        1.6991465690373315,
+        1.504418316359419,
+        1.8330061397028476
+      ],
+      "observations_sha256": "3bb36fa79726fa51f088777e6f22b0491cf930119518f5677e5a4ba224a0b1d8",
+      "data_directory": "data/generated/switching/n3/T2000/seed_687"
+    },
+    {
+      "kind": "drifting",
+      "channels": 1,
+      "seed": 685,
+      "retained_observations": 10000,
+      "all_observations_finite": true,
+      "regime_length": null,
+      "orders": [
+        1
+      ],
+      "switch_count": 1,
+      "maximum_true_spectral_radius": 0.9,
+      "burn_in_per_regime": 200,
+      "simulated_observations": 10200,
+      "innovation_equation_max_abs_error": 4.440892098500626e-16,
+      "innovation_mean": [
+        0.004116134819629094
+      ],
+      "innovation_covariance_empirical": [
+        [
+          0.9950735532382843
+        ]
+      ],
+      "raw_observation_mean": [
+        -0.012726675493690914
+      ],
+      "raw_observation_std": [
+        1.4743611896386273
+      ],
+      "observations_sha256": "56ecb55c6e73b021c3221be4be46860361d3b44ae46fbfed861bad37baec2e05",
+      "data_directory": "data/generated/drifting/n1/seed_685"
+    },
+    {
+      "kind": "drifting",
+      "channels": 1,
+      "seed": 686,
+      "retained_observations": 10000,
+      "all_observations_finite": true,
+      "regime_length": null,
+      "orders": [
+        1
+      ],
+      "switch_count": 1,
+      "maximum_true_spectral_radius": 0.9,
+      "burn_in_per_regime": 200,
+      "simulated_observations": 10200,
+      "innovation_equation_max_abs_error": 4.440892098500626e-16,
+      "innovation_mean": [
+        0.007819874868834042
+      ],
+      "innovation_covariance_empirical": [
+        [
+          1.0187007280410572
+        ]
+      ],
+      "raw_observation_mean": [
+        0.012196461278080812
+      ],
+      "raw_observation_std": [
+        1.541167213998164
+      ],
+      "observations_sha256": "d274a03e3fea1c9f516e971fe28b0ff3af8998ffbc6f6ab5e9360aa0ae6c98dd",
+      "data_directory": "data/generated/drifting/n1/seed_686"
+    },
+    {
+      "kind": "drifting",
+      "channels": 1,
+      "seed": 687,
+      "retained_observations": 10000,
+      "all_observations_finite": true,
+      "regime_length": null,
+      "orders": [
+        1
+      ],
+      "switch_count": 1,
+      "maximum_true_spectral_radius": 0.9,
+      "burn_in_per_regime": 200,
+      "simulated_observations": 10200,
+      "innovation_equation_max_abs_error": 4.440892098500626e-16,
+      "innovation_mean": [
+        -0.008230191861135137
+      ],
+      "innovation_covariance_empirical": [
+        [
+          1.0009950958193592
+        ]
+      ],
+      "raw_observation_mean": [
+        -0.01611539173637491
+      ],
+      "raw_observation_std": [
+        1.469782300336645
+      ],
+      "observations_sha256": "8ac1c9d4c34c31c4cbec50824eefd5c7ed21093a9d231a179349c48f3dea1e07",
+      "data_directory": "data/generated/drifting/n1/seed_687"
+    }
+  ],
+  "plots_use_seed": 685,
+  "scope": "Raw synthetic observations only; no expert, gate or baseline forecasts",
+  "drifting_initialization": "200 discarded steps at coefficient 0.9; no reset at the halfway jump"
+}
