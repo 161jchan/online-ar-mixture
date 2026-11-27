@@ -101,7 +101,6 @@ def plot_diagnostics(directory, values, truth, arrays, summary):
                          'axes.spines.right': False, 'figure.dpi': 130})
 
     def save(fig, name):
-        fig.savefig(directory / f'{name}.png', dpi=150)
         fig.savefig(directory / f'{name}.pdf')
         plt.close(fig)
 
