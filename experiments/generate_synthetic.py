@@ -134,7 +134,6 @@ def plot_data(directory, values, truth, seed):
     if truth['kind']=='switching':
         title += f' | T={truth["regime_length"]}'
     fig.suptitle(title)
-    fig.savefig(directory/'data_overview.png',dpi=150)
     fig.savefig(directory/'data_overview.pdf')
     plt.close(fig)
 
