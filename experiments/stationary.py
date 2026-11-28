@@ -9,7 +9,7 @@ import json
 from pathlib import Path
 import platform
 import numpy as np
-from data.synthetic import DataConfig, generate_stationary_ar4, spectral_radius
+from data.synthetic import spectral_radius
 from experts.online import ExpertConfig, OnlineARExperts
 from experts.scalar import direct_yule_walker
 
@@ -173,7 +173,8 @@ def run_one(root, data_root, seed, config):
     directory.mkdir(parents=True, exist_ok=True)
     data_directory = data_root / f'seed_{seed}'
     data_directory.mkdir(parents=True, exist_ok=True)
-    values, truth = generate_stationary_ar4(DataConfig(seed=seed))
+    values = np.load(data_directory / "observations.npz")["observations_raw"]
+    truth = json.loads((data_directory / "ground_truth.json").read_text(encoding="utf-8"))
     arrays, final, direct = run_stream(values, config)
     normalization = final['normalization']
     scale = normalization['scale']
@@ -209,9 +210,9 @@ def run_one(root, data_root, seed, config):
             'Temporal SD bars describe fluctuations and are not confidence intervals.',
         ],
     }
-    np.savez_compressed(data_directory / 'observations.npz', observations_raw=values)
+    # Reuse the saved observations; never overwrite the generator handoff.
     np.savez_compressed(directory / 'online_diagnostics.npz', **arrays)
-    write_json(data_directory / 'ground_truth.json', truth)
+
     write_json(directory / 'run_configuration.json', {'data': truth['configuration'], 'experts': asdict(config),
                                                      'python': platform.python_version(), 'numpy': np.__version__})
     write_json(directory / 'summary.json', summary)
@@ -266,7 +267,7 @@ def main():
     parser.add_argument('--epsilon', type=float, default=1e-6)
     parser.add_argument('--output', type=Path, default=Path('outputs/stationary/n1'))
     parser.add_argument('--data-output', type=Path, default=Path('data/generated/stationary/n1'),
-                        help='Save generated observations and real coefficients here')
+                        help='Read existing observations and separate generating coefficients here')
     parser.add_argument('--report-results', type=Path,
                         help='Optional LaTeX numeric export; no report folder is created by default')
     args = parser.parse_args()
