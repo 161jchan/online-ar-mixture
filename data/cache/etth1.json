@@ -1,0 +1,13 @@
+{
+  "dataset": "etth1",
+  "source_url": "https://raw.githubusercontent.com/zhouhaoyi/ETDataset/main/ETT-small/ETTh1.csv",
+  "resolved_url": "https://raw.githubusercontent.com/zhouhaoyi/ETDataset/main/ETT-small/ETTh1.csv",
+  "source_credit": "ETDataset ETTh1; downloaded bytes pinned by SHA-256",
+  "sha256": "f18de3ad269cef59bb07b5438d79bb3042d3be49bdeecf01c1cd6d29695ee066",
+  "bytes": 2589657,
+  "retrieved_utc": "2026-11-28T01:26:24.317617+00:00",
+  "headers": {
+    "ETag": "\"a99344d5cb9e3149052f13de166d8cf25404a50f36d2372c4b76376baf9634b0\"",
+    "Last-Modified": null
+  }
+}
