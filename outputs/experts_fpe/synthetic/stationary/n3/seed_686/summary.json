@@ -1,0 +1,111 @@
+{
+  "configuration": {
+    "max_order": 8,
+    "forgetting_factor": 0.99,
+    "epsilon": 1e-06,
+    "variance_floor": 1e-12,
+    "reflection_margin": 1e-10,
+    "normalization_floor": 1e-12
+  },
+  "channels": 3,
+  "rows": 10000,
+  "warmup_length": 40,
+  "scored_observations": 9960,
+  "excluded_incomplete_targets": 0,
+  "expert_mse_standardized": [
+    0.6758904922440631,
+    0.6233659989788827,
+    0.6055789307267705,
+    0.6198296760817189,
+    0.6512718572253927,
+    0.6858905550747723,
+    0.7243626831905856,
+    0.7651513146838314
+  ],
+  "expert_mse_raw": [
+    3.813934620874319,
+    3.519489137249225,
+    3.4317085905233595,
+    3.5271949581186948,
+    3.721978037740369,
+    3.9396881086738595,
+    4.180036522318288,
+    4.437868993956781
+  ],
+  "fpe_mse_standardized": 0.6166189286159739,
+  "fpe_mse_raw": 3.496926453461908,
+  "fpe_order_counts": [
+    22,
+    1177,
+    7232,
+    1483,
+    5,
+    8,
+    14,
+    19
+  ],
+  "fpe_fallback_scored_steps": 0,
+  "stale_fraction_by_order": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.00020080321285140563,
+    0.0007028112449799197
+  ],
+  "max_stale_steps_by_order": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    2
+  ],
+  "scored_states_with_guard": 7,
+  "fresh_counts": [
+    9960,
+    9960,
+    9960,
+    9960,
+    9960,
+    9960,
+    9958,
+    9953
+  ],
+  "direct_solve": {
+    "valid_order_comparisons": 79671,
+    "maximum_absolute_difference": 5.297984273511247e-13,
+    "atol": 1e-08,
+    "rtol": 1e-08
+  },
+  "normalization": {
+    "mean": [
+      0.47261226165295883,
+      -0.043364128135322186,
+      0.1757998389234244
+    ],
+    "scale": [
+      3.1722942206675073,
+      2.041208376334607,
+      2.2590769562002295
+    ],
+    "ddof": 0,
+    "frozen": true,
+    "warmup_length": 40,
+    "constant_warmup": [
+      false,
+      false,
+      false
+    ]
+  },
+  "loss_units": "Mean squared Euclidean norm, summed across channels; not divided by n",
+  "timing": "Row t is forecast with observations [0,t); covariance/fresh/FPE also pre-target",
+  "dataset": "stationary/n3/seed_686",
+  "source_sha256": "a0f306106d32aca5b21c783bbdb52b1330e1c152e3237bdd52e7a41430816da5",
+  "source_file": "data/generated/stationary/n3/seed_686/observations.npz",
+  "synthetic_seed": 686
+}
