@@ -269,7 +269,7 @@ def plot_one(directory):
                      lw=.8, label=f"AR({order})")
     axes[0].plot(t[valid_indices], np.cumsum(fpe_loss[mask])/np.arange(1, mask.sum()+1),
                  color="black", lw=1, label="FPE")
-    axes[0].set(ylabel=("Held-out cumulative standardized loss" if "split_index" in summary
+    axes[0].set(ylabel=("Held-out cumulative MSE\n(standardized)" if "split_index" in summary
                         else "Cumulative standardized loss"), title=summary["dataset"])
     axes[0].legend(ncol=4)
     axes[1].step(t, a["fpe_order"], lw=.6)
