@@ -1,0 +1,75 @@
+{
+  "configuration": {
+    "max_order": 4,
+    "forgetting_factor": 0.99,
+    "epsilon": 1e-06,
+    "variance_floor": 1e-12,
+    "reflection_margin": 1e-10,
+    "normalization_floor": 1e-12
+  },
+  "channels": 1,
+  "rows": 10000,
+  "warmup_length": 20,
+  "scored_observations": 9980,
+  "excluded_incomplete_targets": 0,
+  "expert_mse_standardized": [
+    0.6667335592310142,
+    0.5382164515584734,
+    0.5052565079182885,
+    0.4805840065744847
+  ],
+  "expert_mse_raw": [
+    2.2473635858003385,
+    1.8141700500365556,
+    1.7030717318231852,
+    1.6199079547446344
+  ],
+  "fpe_mse_standardized": 0.4829837608037524,
+  "fpe_mse_raw": 1.6279968235214572,
+  "fpe_order_counts": [
+    249,
+    2479,
+    2103,
+    5149
+  ],
+  "fpe_fallback_scored_steps": 0,
+  "stale_fraction_by_order": [
+    0.0,
+    0.0014028056112224449,
+    0.0031062124248496994,
+    0.008016032064128256
+  ],
+  "max_stale_steps_by_order": [
+    0,
+    6,
+    14,
+    33
+  ],
+  "scored_states_with_guard": 80,
+  "fresh_counts": [
+    9980,
+    9966,
+    9949,
+    9900
+  ],
+  "direct_solve": {
+    "valid_order_comparisons": 0,
+    "maximum_absolute_difference": 0.0,
+    "atol": 1e-08,
+    "rtol": 1e-08
+  },
+  "normalization": {
+    "mean": -0.271685707571878,
+    "scale": 1.835948573852631,
+    "ddof": 0,
+    "frozen": true,
+    "warmup_length": 20,
+    "constant_warmup": false
+  },
+  "loss_units": "Mean squared Euclidean norm, summed across channels; not divided by n",
+  "timing": "Row t is forecast with observations [0,t); covariance/fresh/FPE also pre-target",
+  "dataset": "switching/n1/T500/seed_687",
+  "source_sha256": "c08cf9610f38c1783f2302ac85dfc5904224abf6d9e5cb17ff0bf4596a7eb133",
+  "source_file": "data/generated/switching/n1/T500/seed_687/observations.npz",
+  "synthetic_seed": 687
+}
