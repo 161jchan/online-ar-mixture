@@ -1,0 +1,174 @@
+{
+  "configuration": {
+    "max_order": 8,
+    "forgetting_factor": 0.98,
+    "epsilon": 1e-06,
+    "variance_floor": 1e-12,
+    "reflection_margin": 1e-10,
+    "normalization_floor": 1e-12
+  },
+  "channels": 7,
+  "rows": 17420,
+  "warmup_length": 40,
+  "scored_observations": 17380,
+  "excluded_incomplete_targets": 0,
+  "expert_mse_standardized": [
+    8.652471486802344,
+    10.537884390020807,
+    11.859455492078196,
+    21.290734955048183,
+    28.808543640363546,
+    30.49079398446098,
+    53.50834017108619,
+    79.78651231043318
+  ],
+  "expert_mse_raw": [
+    19.187225942741943,
+    22.981114256106395,
+    24.931767406063912,
+    46.62427010783329,
+    41.83070998857721,
+    66.76183909707912,
+    92.78913247104171,
+    162.2552068172364
+  ],
+  "fpe_mse_standardized": 8.98872636178545,
+  "fpe_mse_raw": 20.09266782301462,
+  "fpe_order_counts": [
+    15756,
+    1389,
+    199,
+    34,
+    2,
+    0,
+    0,
+    0
+  ],
+  "fpe_fallback_scored_steps": 9627,
+  "stale_fraction_by_order": [
+    0.5539125431530495,
+    0.6974683544303798,
+    0.8038550057537399,
+    0.8817031070195627,
+    0.9417721518987342,
+    0.9746260069044879,
+    0.9917146144994247,
+    0.9985615650172612
+  ],
+  "max_stale_steps_by_order": [
+    188,
+    747,
+    869,
+    914,
+    1676,
+    2953,
+    4958,
+    7583
+  ],
+  "scored_states_with_guard": 17355,
+  "fresh_counts": [
+    7753,
+    5258,
+    3409,
+    2056,
+    1012,
+    441,
+    144,
+    25
+  ],
+  "direct_solve": {
+    "valid_order_comparisons": 20098,
+    "maximum_absolute_difference": 4.2870595962085645e-11,
+    "atol": 1e-08,
+    "rtol": 1e-08
+  },
+  "normalization": {
+    "mean": [
+      6.031400036811829,
+      3.1278250247240065,
+      2.921849998831749,
+      1.2907749921083451,
+      3.0885000109672545,
+      1.525200006365776,
+      20.90010004043579
+    ],
+    "scale": [
+      1.863418295656125,
+      0.9569103173413958,
+      1.7961274719449398,
+      0.6435504087223928,
+      0.6885336244258201,
+      0.18615062064916285,
+      2.7571824607686004
+    ],
+    "ddof": 0,
+    "frozen": true,
+    "warmup_length": 40,
+    "constant_warmup": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "loss_units": "Mean squared Euclidean norm, summed across channels; not divided by n",
+  "timing": "Row t is forecast with observations [0,t); covariance/fresh/FPE also pre-target",
+  "heldout_expert_mse_raw": [
+    21.9950271973203,
+    26.089378100477273,
+    28.036895737921533,
+    53.906638821498085,
+    46.50350346904195,
+    56.16115608609539,
+    82.59791192849448,
+    167.58879816138918
+  ],
+  "heldout_fpe_mse_raw": 22.890404437237194,
+  "heldout_expert_mse_standardized": [
+    9.51173769213027,
+    11.525918531179938,
+    12.845817140432308,
+    24.016085615068352,
+    32.29748728374893,
+    29.810861380266363,
+    56.308504493995294,
+    88.03469640137746
+  ],
+  "heldout_fpe_mse_standardized": 9.83540387090974,
+  "dataset": "etth1",
+  "data": {
+    "dataset": "etth1",
+    "source_url": "https://raw.githubusercontent.com/zhouhaoyi/ETDataset/main/ETT-small/ETTh1.csv",
+    "resolved_url": "https://raw.githubusercontent.com/zhouhaoyi/ETDataset/main/ETT-small/ETTh1.csv",
+    "source_credit": "ETDataset ETTh1; downloaded bytes pinned by SHA-256",
+    "sha256": "f18de3ad269cef59bb07b5438d79bb3042d3be49bdeecf01c1cd6d29695ee066",
+    "bytes": 2589657,
+    "retrieved_utc": "2026-11-28T01:26:24.317617+00:00",
+    "headers": {
+      "ETag": "\"a99344d5cb9e3149052f13de166d8cf25404a50f36d2372c4b76376baf9634b0\"",
+      "Last-Modified": null
+    },
+    "channels": [
+      "HUFL",
+      "HULL",
+      "MUFL",
+      "MULL",
+      "LUFL",
+      "LULL",
+      "OT"
+    ],
+    "missing_policy": "Per-channel forward fill; leading missing=0; exclude incomplete target rows",
+    "timestamp_policy": "Source order; unique regular hourly/monthly grid; insert missing grid rows",
+    "missing_cells": 0,
+    "rows": 17420,
+    "upstream_interpolation_policy": null,
+    "first_timestamp": "2016-07-01T00:00:00",
+    "last_timestamp": "2018-06-26T19:00:00"
+  },
+  "split_index": 3484,
+  "heldout_scored_observations": 13936,
+  "full_stream_descriptive_only": true
+}
