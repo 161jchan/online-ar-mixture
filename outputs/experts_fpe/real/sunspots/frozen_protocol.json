@@ -1,0 +1,45 @@
+{
+  "data": {
+    "dataset": "sunspots",
+    "source_url": "https://www.sidc.be/SILSO/DATA/SN_m_tot_V2.0.csv",
+    "resolved_url": "https://www.sidc.be/SILSO/DATA/SN_m_tot_V2.0.csv",
+    "source_credit": "WDC-SILSO, Royal Observatory of Belgium, Brussels; V2.0; https://doi.org/10.24414/qnza-ac80; CC BY-NC 4.0",
+    "sha256": "1cf8a1f6f28ff9ee479783d72fa323eb70a824056450ccf60d0152fa28abd72f",
+    "bytes": 126692,
+    "retrieved_utc": "2026-11-28T01:30:28.548519+00:00",
+    "headers": {
+      "ETag": "\"1eee4-65f33e27d5323\"",
+      "Last-Modified": "Sun, 01 Nov 2026 09:45:08 GMT"
+    },
+    "channels": [
+      "monthly_mean_total_sunspot_number"
+    ],
+    "missing_policy": "Per-channel forward fill; leading missing=0; exclude incomplete target rows",
+    "timestamp_policy": "Source order; unique regular hourly/monthly grid; insert missing grid rows",
+    "missing_cells": 1,
+    "rows": 3334,
+    "upstream_interpolation_policy": "SILSO February 1824 marked missing; forward-filled from January",
+    "first_timestamp": "1749-01-01T00:00:00",
+    "last_timestamp": "2026-10-01T00:00:00"
+  },
+  "split_index": 666,
+  "first20_percent_trials": [
+    {
+      "forgetting_factor": 0.98,
+      "prefix_fpe_mse_standardized": 0.47694776619791196
+    },
+    {
+      "forgetting_factor": 0.99,
+      "prefix_fpe_mse_standardized": 0.4464647557304562
+    },
+    {
+      "forgetting_factor": 0.995,
+      "prefix_fpe_mse_standardized": 0.4440741378356043
+    }
+  ],
+  "selected_forgetting_factor": 0.995,
+  "max_order": 8,
+  "selection_rule": "Lowest prefix prequential FPE standardized loss; ties use grid order",
+  "heldout_policy": "Freeze this file before the first full pass. No retuning after index split.",
+  "deterministic_experts": "No gate initialization; repeating identical real experts for three seeds adds no variation"
+}
