@@ -1,0 +1,135 @@
+{
+  "configuration": {
+    "max_order": 12,
+    "forgetting_factor": 0.99,
+    "epsilon": 1e-06,
+    "variance_floor": 1e-12,
+    "reflection_margin": 1e-10,
+    "normalization_floor": 1e-12
+  },
+  "channels": 3,
+  "rows": 10000,
+  "warmup_length": 60,
+  "scored_observations": 9940,
+  "excluded_incomplete_targets": 0,
+  "expert_mse_standardized": [
+    2.341792848351046,
+    1.952386308235248,
+    1.8688201143198948,
+    1.852525140056094,
+    1.8733827785733446,
+    1.8948245855538013,
+    1.9240668072267029,
+    1.9540563912412225,
+    1.9883469369917934,
+    2.0220402690221055,
+    2.0560460290311036,
+    2.091780938320687
+  ],
+  "expert_mse_raw": [
+    5.15391184763242,
+    4.320042526950069,
+    4.130617443677874,
+    4.0943778913335445,
+    4.137903439444565,
+    4.181185328185742,
+    4.244006074868617,
+    4.3070712119902055,
+    4.379146364531141,
+    4.451633322688523,
+    4.524506937362478,
+    4.602211322504902
+  ],
+  "fpe_mse_standardized": 1.8651057698652909,
+  "fpe_mse_raw": 4.124127579886505,
+  "fpe_order_counts": [
+    568,
+    4445,
+    3508,
+    1412,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    7
+  ],
+  "fpe_fallback_scored_steps": 0,
+  "stale_fraction_by_order": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "max_stale_steps_by_order": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "scored_states_with_guard": 0,
+  "fresh_counts": [
+    9940,
+    9940,
+    9940,
+    9940,
+    9940,
+    9940,
+    9940,
+    9940,
+    9940,
+    9940,
+    9940,
+    9940
+  ],
+  "direct_solve": {
+    "valid_order_comparisons": 0,
+    "maximum_absolute_difference": 0.0,
+    "atol": 1e-08,
+    "rtol": 1e-08
+  },
+  "normalization": {
+    "mean": [
+      0.0025236582840280483,
+      -0.2056264190464563,
+      -0.3672588655029051
+    ],
+    "scale": [
+      1.3679618259405744,
+      1.4550112994661957,
+      1.673968040884192
+    ],
+    "ddof": 0,
+    "frozen": true,
+    "warmup_length": 60,
+    "constant_warmup": [
+      false,
+      false,
+      false
+    ]
+  },
+  "loss_units": "Mean squared Euclidean norm, summed across channels; not divided by n",
+  "timing": "Row t is forecast with observations [0,t); covariance/fresh/FPE also pre-target",
+  "dataset": "switching/n3/T500/seed_686",
+  "source_sha256": "2df0b53db8199be001447d44f347bc0ffc18c8e56ade1e6661e43c5305f4fad0",
+  "source_file": "data/generated/switching/n3/T500/seed_686/observations.npz",
+  "synthetic_seed": 686
+}
