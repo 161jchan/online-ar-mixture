@@ -1,0 +1,99 @@
+{
+  "configuration": {
+    "max_order": 8,
+    "forgetting_factor": 0.98,
+    "epsilon": 1e-06,
+    "variance_floor": 1e-12,
+    "reflection_margin": 1e-10,
+    "normalization_floor": 1e-12
+  },
+  "channels": 1,
+  "rows": 10000,
+  "warmup_length": 40,
+  "scored_observations": 9960,
+  "excluded_incomplete_targets": 0,
+  "expert_mse_standardized": [
+    0.4677305414110559,
+    0.4665135748837553,
+    0.4738561411267207,
+    0.4838507581456864,
+    0.4950010549813719,
+    0.5062764969550891,
+    0.5188897786960682,
+    0.5325146549129476
+  ],
+  "expert_mse_raw": [
+    1.068598774956211,
+    1.0658184370798056,
+    1.0825936026881842,
+    1.105427765859149,
+    1.130902248459896,
+    1.1566626434169043,
+    1.1854795288311468,
+    1.2166075496577722
+  ],
+  "fpe_mse_standardized": 0.4733197562181988,
+  "fpe_mse_raw": 1.0813681529785721,
+  "fpe_order_counts": [
+    6694,
+    2471,
+    534,
+    125,
+    56,
+    29,
+    43,
+    8
+  ],
+  "fpe_fallback_scored_steps": 0,
+  "stale_fraction_by_order": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "max_stale_steps_by_order": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "scored_states_with_guard": 0,
+  "fresh_counts": [
+    9960,
+    9960,
+    9960,
+    9960,
+    9960,
+    9960,
+    9960,
+    9960
+  ],
+  "direct_solve": {
+    "valid_order_comparisons": 0,
+    "maximum_absolute_difference": 0.0,
+    "atol": 1e-08,
+    "rtol": 1e-08
+  },
+  "normalization": {
+    "mean": 1.3699888528316329,
+    "scale": 1.5115045940318352,
+    "ddof": 0,
+    "frozen": true,
+    "warmup_length": 40,
+    "constant_warmup": false
+  },
+  "loss_units": "Mean squared Euclidean norm, summed across channels; not divided by n",
+  "timing": "Row t is forecast with observations [0,t); covariance/fresh/FPE also pre-target",
+  "dataset": "stationary/n1/seed_686",
+  "source_sha256": "fbd7531fe51de013d5ca20a7c3a4065513f6a9c32822a5a6bbb3d5e087324c17",
+  "source_file": "data/generated/stationary/n1/seed_686/observations.npz",
+  "synthetic_seed": 686
+}
