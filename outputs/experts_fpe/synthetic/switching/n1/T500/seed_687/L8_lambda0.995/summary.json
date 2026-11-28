@@ -1,0 +1,99 @@
+{
+  "configuration": {
+    "max_order": 8,
+    "forgetting_factor": 0.995,
+    "epsilon": 1e-06,
+    "variance_floor": 1e-12,
+    "reflection_margin": 1e-10,
+    "normalization_floor": 1e-12
+  },
+  "channels": 1,
+  "rows": 10000,
+  "warmup_length": 40,
+  "scored_observations": 9960,
+  "excluded_incomplete_targets": 0,
+  "expert_mse_standardized": [
+    0.6495431792799081,
+    0.5433949899432703,
+    0.4932217765383581,
+    0.47478833099661777,
+    0.4646500314275429,
+    0.4608179749663297,
+    0.45799458895825773,
+    0.4578655729531561
+  ],
+  "expert_mse_raw": [
+    2.380775792463227,
+    1.9917099879902316,
+    1.80780970897116,
+    1.7402454540957413,
+    1.70308546387376,
+    1.6890397967815114,
+    1.6786912175411703,
+    1.6782183341493013
+  ],
+  "fpe_mse_standardized": 0.4554811179915787,
+  "fpe_mse_raw": 1.6694785723723564,
+  "fpe_order_counts": [
+    9,
+    891,
+    1682,
+    1010,
+    834,
+    2249,
+    1556,
+    1729
+  ],
+  "fpe_fallback_scored_steps": 0,
+  "stale_fraction_by_order": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "max_stale_steps_by_order": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "scored_states_with_guard": 0,
+  "fresh_counts": [
+    9960,
+    9960,
+    9960,
+    9960,
+    9960,
+    9960,
+    9960,
+    9960
+  ],
+  "direct_solve": {
+    "valid_order_comparisons": 0,
+    "maximum_absolute_difference": 0.0,
+    "atol": 1e-08,
+    "rtol": 1e-08
+  },
+  "normalization": {
+    "mean": -0.07073997963808906,
+    "scale": 1.9144994047811636,
+    "ddof": 0,
+    "frozen": true,
+    "warmup_length": 40,
+    "constant_warmup": false
+  },
+  "loss_units": "Mean squared Euclidean norm, summed across channels; not divided by n",
+  "timing": "Row t is forecast with observations [0,t); covariance/fresh/FPE also pre-target",
+  "dataset": "switching/n1/T500/seed_687",
+  "source_sha256": "c08cf9610f38c1783f2302ac85dfc5904224abf6d9e5cb17ff0bf4596a7eb133",
+  "source_file": "data/generated/switching/n1/T500/seed_687/observations.npz",
+  "synthetic_seed": 687
+}
