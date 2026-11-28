@@ -1,6 +1,6 @@
-"""Show Tasnuba how to run the generator and experts together.
+"""Show Tasnuba how to run saved observations through the experts.
 
-Generate the stationary AR(4) data, initialize AR(1)..AR(8), then repeatedly
+Load the saved stationary AR(4) data, initialize AR(1)..AR(8), then repeatedly
 predict, score the forecasts, and update the experts.
 
 This file is a runnable usage example. Tasnuba can follow the same calls
@@ -8,7 +8,7 @@ in her own runner and insert her gate at the marked points.
 """
 
 import numpy as np
-from data.synthetic import DataConfig, generate_stationary_ar4
+from pathlib import Path
 from experts.online import OnlineARExperts
 
 
@@ -27,7 +27,7 @@ def stream_with_gate(values, gate_predict=None, gate_update=None):
         target_z = bank.standardize(target_raw)
         # Compare the actual observation with the saved forecasts before
         # updating either AR(1)..AR(8) or the gate.
-        errors.append((target_z-forecasts_z[:, 0])**2)
+        errors.append(((target_z-forecasts_z)**2).sum(axis=1))
         # Update the experts for the following observation.
         bank.update(target_raw)
         # Update the optional gate using the forecasts saved before the update.
@@ -37,7 +37,8 @@ def stream_with_gate(values, gate_predict=None, gate_update=None):
 
 
 def main():
-    values, _truth = generate_stationary_ar4(DataConfig())
+    path = Path("data/generated/stationary/n1/seed_685/observations.npz")
+    values = np.load(path)["observations_raw"]
     errors, final = stream_with_gate(values)
     print('Retained observations:', len(values), '| scored:', len(errors))
     print('Per-expert MSE (standardized):', np.mean(errors, axis=0))
