@@ -1,0 +1,51 @@
+{
+  "data": {
+    "dataset": "etth1",
+    "source_url": "https://raw.githubusercontent.com/zhouhaoyi/ETDataset/main/ETT-small/ETTh1.csv",
+    "resolved_url": "https://raw.githubusercontent.com/zhouhaoyi/ETDataset/main/ETT-small/ETTh1.csv",
+    "source_credit": "ETDataset ETTh1; downloaded bytes pinned by SHA-256",
+    "sha256": "f18de3ad269cef59bb07b5438d79bb3042d3be49bdeecf01c1cd6d29695ee066",
+    "bytes": 2589657,
+    "retrieved_utc": "2026-11-28T01:26:24.317617+00:00",
+    "headers": {
+      "ETag": "\"a99344d5cb9e3149052f13de166d8cf25404a50f36d2372c4b76376baf9634b0\"",
+      "Last-Modified": null
+    },
+    "channels": [
+      "HUFL",
+      "HULL",
+      "MUFL",
+      "MULL",
+      "LUFL",
+      "LULL",
+      "OT"
+    ],
+    "missing_policy": "Per-channel forward fill; leading missing=0; exclude incomplete target rows",
+    "timestamp_policy": "Source order; unique regular hourly/monthly grid; insert missing grid rows",
+    "missing_cells": 0,
+    "rows": 17420,
+    "upstream_interpolation_policy": null,
+    "first_timestamp": "2016-07-01T00:00:00",
+    "last_timestamp": "2018-06-26T19:00:00"
+  },
+  "split_index": 3484,
+  "first20_percent_trials": [
+    {
+      "forgetting_factor": 0.98,
+      "prefix_fpe_mse_standardized": 5.562681713946927
+    },
+    {
+      "forgetting_factor": 0.99,
+      "prefix_fpe_mse_standardized": 5.999699405220842
+    },
+    {
+      "forgetting_factor": 0.995,
+      "prefix_fpe_mse_standardized": 6.137918219176959
+    }
+  ],
+  "selected_forgetting_factor": 0.98,
+  "max_order": 8,
+  "selection_rule": "Lowest prefix prequential FPE standardized loss; ties use grid order",
+  "heldout_policy": "Freeze this file before the first full pass. No retuning after index split.",
+  "deterministic_experts": "No gate initialization; repeating identical real experts for three seeds adds no variation"
+}
