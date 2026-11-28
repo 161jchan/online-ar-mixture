@@ -1,0 +1,10 @@
+{
+  "runs": 71,
+  "direct_valid_order_comparisons": 1719080,
+  "maximum_direct_absolute_difference": 4.2870595962085645e-11,
+  "human_multichannel_review": "PENDING: no teammate review has occurred",
+  "software": {
+    "python": "3.12.14",
+    "numpy": "2.5.5"
+  }
+}
