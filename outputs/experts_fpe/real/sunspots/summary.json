@@ -1,0 +1,144 @@
+{
+  "configuration": {
+    "max_order": 8,
+    "forgetting_factor": 0.995,
+    "epsilon": 1e-06,
+    "variance_floor": 1e-12,
+    "reflection_margin": 1e-10,
+    "normalization_floor": 1e-12
+  },
+  "channels": 1,
+  "rows": 3334,
+  "warmup_length": 40,
+  "scored_observations": 3293,
+  "excluded_incomplete_targets": 1,
+  "expert_mse_standardized": [
+    0.43072707471660715,
+    0.40003771259370263,
+    0.3877479579260608,
+    0.38307061870945786,
+    0.3843126217401475,
+    0.3859746628507589,
+    0.38684947080365584,
+    0.38889160648483584
+  ],
+  "expert_mse_raw": [
+    718.6777482227337,
+    667.4718618052316,
+    646.9661315430684,
+    639.1618865508682,
+    641.234196358578,
+    644.0073490878642,
+    645.466985703763,
+    648.8743347167796
+  ],
+  "fpe_mse_standardized": 0.3858964076330927,
+  "fpe_mse_raw": 643.8767785086721,
+  "fpe_order_counts": [
+    0,
+    11,
+    649,
+    1503,
+    454,
+    280,
+    320,
+    76
+  ],
+  "fpe_fallback_scored_steps": 0,
+  "stale_fraction_by_order": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "max_stale_steps_by_order": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "scored_states_with_guard": 0,
+  "fresh_counts": [
+    3294,
+    3294,
+    3294,
+    3294,
+    3294,
+    3294,
+    3294,
+    3294
+  ],
+  "direct_solve": {
+    "valid_order_comparisons": 26352,
+    "maximum_absolute_difference": 9.96425164601078e-15,
+    "atol": 1e-08,
+    "rtol": 1e-08
+  },
+  "normalization": {
+    "mean": 114.9625,
+    "scale": 40.847550033631144,
+    "ddof": 0,
+    "frozen": true,
+    "warmup_length": 40,
+    "constant_warmup": false
+  },
+  "loss_units": "Mean squared Euclidean norm, summed across channels; not divided by n",
+  "timing": "Row t is forecast with observations [0,t); covariance/fresh/FPE also pre-target",
+  "heldout_expert_mse_raw": [
+    692.1745611908253,
+    646.7069030049886,
+    627.823832073302,
+    617.4801018813895,
+    618.2143071155214,
+    619.978080078302,
+    621.3870519313151,
+    624.175995464492
+  ],
+  "heldout_fpe_mse_raw": 621.0922462392795,
+  "heldout_expert_mse_standardized": [
+    0.41484284809465966,
+    0.3875925937866198,
+    0.3762753519154388,
+    0.37007601617944486,
+    0.37051604938420285,
+    0.37157313619481064,
+    0.3724175790986103,
+    0.3740890841543417
+  ],
+  "heldout_fpe_mse_standardized": 0.3722408924074557,
+  "dataset": "sunspots",
+  "data": {
+    "dataset": "sunspots",
+    "source_url": "https://www.sidc.be/SILSO/DATA/SN_m_tot_V2.0.csv",
+    "resolved_url": "https://www.sidc.be/SILSO/DATA/SN_m_tot_V2.0.csv",
+    "source_credit": "WDC-SILSO, Royal Observatory of Belgium, Brussels; V2.0; https://doi.org/10.24414/qnza-ac80; CC BY-NC 4.0",
+    "sha256": "1cf8a1f6f28ff9ee479783d72fa323eb70a824056450ccf60d0152fa28abd72f",
+    "bytes": 126692,
+    "retrieved_utc": "2026-11-28T01:30:28.548519+00:00",
+    "headers": {
+      "ETag": "\"1eee4-65f33e27d5323\"",
+      "Last-Modified": "Sun, 01 Nov 2026 09:45:08 GMT"
+    },
+    "channels": [
+      "monthly_mean_total_sunspot_number"
+    ],
+    "missing_policy": "Per-channel forward fill; leading missing=0; exclude incomplete target rows",
+    "timestamp_policy": "Source order; unique regular hourly/monthly grid; insert missing grid rows",
+    "missing_cells": 1,
+    "rows": 3334,
+    "upstream_interpolation_policy": "SILSO February 1824 marked missing; forward-filled from January",
+    "first_timestamp": "1749-01-01T00:00:00",
+    "last_timestamp": "2026-10-01T00:00:00"
+  },
+  "split_index": 666,
+  "heldout_scored_observations": 2667,
+  "full_stream_descriptive_only": true
+}
