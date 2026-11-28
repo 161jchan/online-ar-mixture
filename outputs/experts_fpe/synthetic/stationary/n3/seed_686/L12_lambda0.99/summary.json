@@ -1,0 +1,135 @@
+{
+  "configuration": {
+    "max_order": 12,
+    "forgetting_factor": 0.99,
+    "epsilon": 1e-06,
+    "variance_floor": 1e-12,
+    "reflection_margin": 1e-10,
+    "normalization_floor": 1e-12
+  },
+  "channels": 3,
+  "rows": 10000,
+  "warmup_length": 60,
+  "scored_observations": 9940,
+  "excluded_incomplete_targets": 0,
+  "expert_mse_standardized": [
+    0.4852963707880587,
+    0.44173433635434917,
+    0.4279962593773077,
+    0.4376401759311488,
+    0.4594746038473192,
+    0.4834492178775179,
+    0.5099792859724006,
+    0.5381958442827035,
+    0.5691720697484414,
+    0.6024813706697529,
+    0.6366003277193183,
+    0.6742842685806791
+  ],
+  "expert_mse_raw": [
+    3.8788777797621568,
+    3.547837408746168,
+    3.454452361684278,
+    3.5507672935741637,
+    3.745960998043569,
+    3.963475195401382,
+    4.203616888022057,
+    4.4621868586758735,
+    4.747872308293201,
+    5.055854960892978,
+    5.374007531866741,
+    5.718350060966788
+  ],
+  "fpe_mse_standardized": 0.43543302075206936,
+  "fpe_mse_raw": 3.516968448563935,
+  "fpe_order_counts": [
+    8,
+    1039,
+    7352,
+    1497,
+    4,
+    0,
+    4,
+    1,
+    2,
+    5,
+    6,
+    22
+  ],
+  "fpe_fallback_scored_steps": 0,
+  "stale_fraction_by_order": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.00020120724346076458,
+    0.0003018108651911469,
+    0.00040241448692152917,
+    0.0007042253521126761,
+    0.0011066398390342052
+  ],
+  "max_stale_steps_by_order": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    2,
+    2,
+    2
+  ],
+  "scored_states_with_guard": 11,
+  "fresh_counts": [
+    9940,
+    9940,
+    9940,
+    9940,
+    9940,
+    9940,
+    9940,
+    9938,
+    9937,
+    9936,
+    9933,
+    9929
+  ],
+  "direct_solve": {
+    "valid_order_comparisons": 0,
+    "maximum_absolute_difference": 0.0,
+    "atol": 1e-08,
+    "rtol": 1e-08
+  },
+  "normalization": {
+    "mean": [
+      0.788754628601192,
+      -0.0799602725090305,
+      0.32220797880318297
+    ],
+    "scale": [
+      3.9009832707918175,
+      2.502662999302851,
+      2.5811399466537197
+    ],
+    "ddof": 0,
+    "frozen": true,
+    "warmup_length": 60,
+    "constant_warmup": [
+      false,
+      false,
+      false
+    ]
+  },
+  "loss_units": "Mean squared Euclidean norm, summed across channels; not divided by n",
+  "timing": "Row t is forecast with observations [0,t); covariance/fresh/FPE also pre-target",
+  "dataset": "stationary/n3/seed_686",
+  "source_sha256": "a0f306106d32aca5b21c783bbdb52b1330e1c152e3237bdd52e7a41430816da5",
+  "source_file": "data/generated/stationary/n3/seed_686/observations.npz",
+  "synthetic_seed": 686
+}
